@@ -1445,3 +1445,40 @@ section,
   white-space: nowrap;
 }
 
+/* ========== MOBILE FIXES – ADD AFTER EVERYTHING ELSE ========== */
+
+/* 0. Universal border-box so big padding never causes horizontal scroll */
+*,*::before,*::after{box-sizing:border-box}
+
+/* 1. Shrink section padding on small screens */
+@media (max-width:767.98px){
+  section,.section{padding:48px 16px}
+}
+
+/* 2. Hero text & button scale-down — overrides the inline style safely */
+@media (max-width:576px){
+  #hero h2{font-size:28px!important}
+  #hero .btn-get-started{font-size:11px!important;padding:8px 16px}
+  #dynamicText{font-size:20px}
+}
+
+/* 3. Make every image and card fluid */
+img, .card-img-top{max-width:100%;height:auto!important}
+.card, .card-exp, .card-extra{height:auto}
+@media (min-width:992px){      /* keep the tall cards on desktop only */
+  .card{height:470px}
+  .card-exp{height:350px}
+  .card-extra{height:527px}
+}
+
+/* 4. Keep the navbar tidy on phones if JS fails to toggle */
+@media (max-width:1199px){
+  #navmenu ul{flex-direction:column;text-align:center}
+}
+
+/* 5. Centre & down-size footer text on tiny screens */
+@media (max-width:600px){
+  .footer .container{text-align:center}
+  .footer .credits{font-size:12px}
+}
+
