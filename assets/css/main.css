@@ -58,12 +58,95 @@
 }
 
 /*--------------------------------------------------------------
+# Continuous animated background for index page
+# (subtle gradient, runs behind entire page)
+--------------------------------------------------------------*/
+html {
+  min-height: 100%;
+}
+
+body.index-page {
+  /* Make all sections/containers that use --background-color transparent
+     so the animated gradient behind the page shows through everywhere */
+  --background-color: transparent;
+}
+
+body.index-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    -45deg,
+    #020617,
+    #022c22,
+    #0b3b4b,
+    #020617
+  );
+  background-size: 260% 260%;
+  animation: index-gradient-flow 40s ease-in-out infinite;
+}
+
+@keyframes index-gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/*--------------------------------------------------------------
+# Floating teal balls theme (soft blur, non-distracting)
+--------------------------------------------------------------*/
+.floating-balls {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-balls .ball {
+  position: absolute;
+  border-radius: 50%;
+  /* Slightly stronger teal + softer blur so it's visible but still subtle */
+  background: radial-gradient(circle at 30% 30%, rgba(45, 212, 191, 0.35), rgba(15, 118, 110, 0.12));
+  filter: blur(30px);
+  animation: float-ball 18s ease-in-out infinite;
+}
+
+.floating-balls .ball-1 { width: 180px; height: 180px; left: 5%; top: 15%; animation-delay: 0s; }
+.floating-balls .ball-2 { width: 140px; height: 140px; left: 75%; top: 25%; animation-delay: -4s; }
+.floating-balls .ball-3 { width: 220px; height: 220px; left: 50%; top: 60%; animation-delay: -8s; }
+.floating-balls .ball-4 { width: 100px; height: 100px; left: 25%; top: 70%; animation-delay: -2s; }
+.floating-balls .ball-5 { width: 160px; height: 160px; left: 85%; top: 55%; animation-delay: -11s; }
+.floating-balls .ball-6 { width: 120px; height: 120px; left: 10%; top: 45%; animation-delay: -6s; }
+.floating-balls .ball-7 { width: 200px; height: 200px; left: 60%; top: 8%; animation-delay: -14s; }
+.floating-balls .ball-8 { width: 90px; height: 90px; left: 40%; top: 80%; animation-delay: -3s; }
+
+@keyframes float-ball {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(15px, -20px) scale(1.02); }
+  50% { transform: translate(-10px, 10px) scale(0.98); }
+  75% { transform: translate(-15px, -10px) scale(1.01); }
+}
+
+/* Ensure page content sits above the balls; sections use semi-transparent bg so balls show through */
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+/*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+}
+
+/* Index page: light base so floating balls are visible */
+.index-page {
+  background-color: #f5faf9;
 }
 
 a {
@@ -652,16 +735,6 @@ section,
   }
 }
 
-.hero img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
 .hero .container {
   position: relative;
   z-index: 2;
@@ -968,10 +1041,12 @@ section,
 --------------------------------------------------------------*/
 /* Education section: card layout with avatar, dates right-aligned */
 #education .education-card {
-  background: #f0f0f0;
+  background: #ffffff;
   border-radius: 10px;
   padding: 1.25rem 1.5rem;
   margin-bottom: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 #education .education-card-header {
@@ -1450,8 +1525,8 @@ section,
   width: 100%;
   height: 420px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   /* Hide the back of each face so only one side is visible during flip */
@@ -1461,14 +1536,14 @@ section,
 
 /* Explicit 0deg so the front has a defined "front" side; back face stays hidden when inner rotates */
 .project-flip-front {
-  background: var(--surface-color);
+  background: var(--surface-color, #fafafa);
   overflow: hidden;
   transform: rotateY(0deg);
   -webkit-transform: rotateY(0deg);
 }
 
 .project-flip-back {
-  background: var(--surface-color);
+  background: var(--surface-color, #fafafa);
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   padding: 1.25rem;
@@ -1869,6 +1944,141 @@ section,
   background: var(--accent-color);
   color: var(--contrast-color);
 }
+
+/* Contact: centered "Say hello" layout */
+.contact-centered {
+  text-align: center;
+}
+
+.contact-centered .contact-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  margin: 0 0 0.5rem 0;
+}
+
+.contact-centered .contact-heading {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--heading-color);
+  margin: 0 0 1rem 0;
+}
+
+.contact-centered .contact-intro {
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--default-color);
+}
+
+.contact-email-wrap {
+  margin-bottom: 0.75rem;
+}
+
+.contact-centered .contact-email {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--heading-color);
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-centered .contact-email:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  color: var(--heading-color);
+}
+
+.contact-centered .contact-location {
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin: 0 0 2.5rem 0;
+}
+
+.contact-centered .contact-location i {
+  margin-right: 0.35rem;
+  color: var(--accent-color);
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--heading-color);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 88px;
+}
+
+.contact-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  color: var(--heading-color);
+}
+
+.contact-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.contact-card-handle {
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+}
+
+.contact-availability {
+  font-size: 0.9rem;
+  color: var(--default-color);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.contact-bullet {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -1889,12 +2099,12 @@ section,
 }
 
 #skills .skill-card {
-  background: #fafafa;
+  background: var(--surface-color, #fafafa);
   border-radius: 12px;
   padding: 1.25rem 1.35rem;
   height: 100%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 #skills .skill-card-title {

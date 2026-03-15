@@ -35,9 +35,208 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Aura pastel teal + blue theme (inlined so it works with base href) -->
+  <style>
+    /* Pastel teal + blue palette */
+    body.index-page {
+      --teal-deep:    #4db6ac;
+      --teal-mid:     #80cbc4;
+      --teal-soft:    #b2dfdb;
+      --teal-pale:    #e0f2f1;
+      --teal-whisper: #f0fafa;
+      --blue-deep:    #64b5f6;
+      --blue-mid:     #90caf9;
+      --blue-soft:    #bbdefb;
+      --blue-pale:    #e3f2fd;
+      --blue-whisper: #f0f8ff;
+      --aura-bg:      #f7fbfc;
+      --aura-border:  rgba(77,182,172,0.18);
+      --background-color: transparent;
+      background: #ffffff;
+    }
+    /* Orb layer */
+    .orb-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .orb-layer .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(88px);
+      animation: drift var(--d) ease-in-out var(--dl) infinite alternate;
+    }
+    /* Teal orbs */
+    .orb-layer .ot1 { width:560px;height:560px; background:radial-gradient(circle,rgba(128,203,196,.38),rgba(77,182,172,.1)); --d:18s;--dl:0s;    top:0%;   left:5%;  }
+    .orb-layer .ot2 { width:320px;height:320px; background:radial-gradient(circle,rgba(178,223,219,.5),rgba(128,203,196,.15)); --d:14s;--dl:-5s;  top:22%;  left:68%; }
+    .orb-layer .ot3 { width:680px;height:680px; background:radial-gradient(circle,rgba(77,182,172,.18),rgba(128,203,196,.05)); --d:26s;--dl:-10s; top:44%;  left:-8%; }
+    .orb-layer .ot4 { width:260px;height:260px; background:radial-gradient(circle,rgba(178,223,219,.6),rgba(77,182,172,.18));  --d:12s;--dl:-3s;  top:62%;  left:80%; }
+    .orb-layer .ot5 { width:440px;height:440px; background:radial-gradient(circle,rgba(128,203,196,.28),rgba(77,182,172,.08)); --d:22s;--dl:-14s; top:78%;  left:30%; }
+    .orb-layer .ot6 { width:200px;height:200px; background:radial-gradient(circle,rgba(178,223,219,.55),rgba(128,203,196,.2)); --d:11s;--dl:-7s;  top:90%;  left:85%; }
+    /* Blue orbs */
+    .orb-layer .ob1 { width:480px;height:480px; background:radial-gradient(circle,rgba(144,202,249,.3), rgba(100,181,246,.08));  --d:20s;--dl:-8s;  top:8%;   left:55%; }
+    .orb-layer .ob2 { width:380px;height:380px; background:radial-gradient(circle,rgba(187,222,251,.45),rgba(144,202,249,.1));   --d:16s;--dl:-2s;  top:35%;  left:20%; }
+    .orb-layer .ob3 { width:290px;height:290px; background:radial-gradient(circle,rgba(227,242,253,.7), rgba(187,222,251,.25));  --d:13s;--dl:-9s;  top:55%;  left:58%; }
+    .orb-layer .ob4 { width:520px;height:520px; background:radial-gradient(circle,rgba(144,202,249,.2), rgba(100,181,246,.06));  --d:24s;--dl:-16s; top:72%;  left:10%; }
+    .orb-layer .ob5 { width:240px;height:240px; background:radial-gradient(circle,rgba(187,222,251,.5), rgba(144,202,249,.18));  --d:10s;--dl:-4s;  top:88%;  left:45%; }
+    /* Extended for scroll depth */
+    .orb-layer .ot7 { width:500px;height:500px; background:radial-gradient(circle,rgba(77,182,172,.22),rgba(128,203,196,.06));  --d:21s;--dl:-6s;  top:115%; left:18%; }
+    .orb-layer .ob6 { width:420px;height:420px; background:radial-gradient(circle,rgba(144,202,249,.26),rgba(100,181,246,.07)); --d:19s;--dl:-12s; top:140%; left:62%; }
+    .orb-layer .ot8 { width:360px;height:360px; background:radial-gradient(circle,rgba(178,223,219,.4), rgba(77,182,172,.12));  --d:15s;--dl:-1s;  top:168%; left:5%;  }
+    .orb-layer .ob7 { width:310px;height:310px; background:radial-gradient(circle,rgba(187,222,251,.42),rgba(144,202,249,.12)); --d:17s;--dl:-9s;  top:195%; left:72%; }
+    .orb-layer .ot9 { width:600px;height:600px; background:radial-gradient(circle,rgba(128,203,196,.18),rgba(77,182,172,.05));  --d:28s;--dl:-13s; top:225%; left:15%; }
+    .orb-layer .ob8 { width:280px;height:280px; background:radial-gradient(circle,rgba(227,242,253,.55),rgba(187,222,251,.2));  --d:12s;--dl:-5s;  top:255%; left:55%; }
+    @keyframes drift {
+      0%   { transform:translate(0,0)           scale(1);    opacity:.55; }
+      30%  { transform:translate(30px,-50px)    scale(1.06); opacity:.8;  }
+      65%  { transform:translate(-25px,25px)    scale(.95);  opacity:.65; }
+      100% { transform:translate(15px,-35px)    scale(1.07); opacity:.85; }
+    }
+    /* Content above orbs */
+    body.index-page .main { position: relative; z-index: 2; }
+    body.index-page .hero,
+    body.index-page section,
+    body.index-page .section { background-color: transparent; }
+    body.index-page .header {
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(178,223,219,.5);
+    }
+    /* Force education & skills cards to match experience (white) – inlined so it applies when base href loads CSS from GitHub */
+    #education .education-card {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    }
+    #skills .skill-card {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    }
+    /* Contact: "Say hello" layout + cards (inlined so it works when base href loads CSS from GitHub) */
+    #contact.contact-centered { text-align: center; }
+    #contact .contact-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #6c757d;
+      margin: 0 0 0.5rem 0;
+      display: block;
+    }
+    #contact .contact-heading {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #222;
+      margin: 0 0 1rem 0;
+    }
+    #contact .contact-intro {
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+    #contact .contact-email-wrap { margin-bottom: 0.75rem; }
+    #contact .contact-email {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #222;
+      text-decoration: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    #contact .contact-email:hover {
+      border-color: #3492b7;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      color: #222;
+    }
+    #contact .contact-location {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 0 0 2.5rem 0;
+    }
+    #contact .contact-location i { margin-right: 0.35rem; color: #3492b7; }
+    #contact .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+    }
+    #contact .contact-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem 1rem;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #222;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      min-height: 88px;
+    }
+    #contact .contact-card:hover {
+      border-color: #3492b7;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      color: #222;
+    }
+    #contact .contact-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    #contact .contact-card-handle {
+      font-size: 0.85rem;
+      color: #555;
+    }
+    #contact .contact-availability {
+      font-size: 0.9rem;
+      color: #444;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    #contact .contact-bullet {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      #contact .contact-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      #contact .contact-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+
 </head>
 
 <body class="index-page">
+
+  <!-- Pastel teal + blue orbs (decorative) -->
+  <div class="orb-layer" aria-hidden="true">
+    <div class="orb ot1"></div><div class="orb ot2"></div><div class="orb ot3"></div>
+    <div class="orb ot4"></div><div class="orb ot5"></div><div class="orb ot6"></div>
+    <div class="orb ob1"></div><div class="orb ob2"></div><div class="orb ob3"></div>
+    <div class="orb ob4"></div><div class="orb ob5"></div>
+    <div class="orb ot7"></div><div class="orb ob6"></div><div class="orb ot8"></div>
+    <div class="orb ob7"></div><div class="orb ot9"></div><div class="orb ob8"></div>
+  </div>
 
   <header id="header" class="header d-flex align-items-center light-background sticky-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
@@ -70,11 +269,9 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-      <img src="assets/img/website-bg.jpg" style="opacity: 0.85;" alt="" data-aos="fade-in">
-    
-      <div class="container text-center hero-container" data-aos="zoom-out" data-aos-delay="100">
+   <!-- Hero Section -->
+   <section id="hero" class="hero section">
+     <div class="container text-center hero-container" data-aos="zoom-out" data-aos-delay="100">
         <div class="row justify-content-center">
           <div class="col-12 col-lg-8">
             <h2 class="hero-title">Priyal Maniar</h2>
@@ -964,50 +1161,34 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact Me</h2>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4">
-          <div class="col-lg-7">
-            <div class="info-wrap">
-              <div class="info-item-map d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>Champaign, Illinois, USA</p>
-                </div>
-              </div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97639.86397356758!2d-88.4329998227062!3d40.11452655148908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880cd08dde97691b%3A0x30f57847b475bfcf!2sChampaign%2C%20IL%2C%20USA!5e0!3m2!1sen!2sin!4v1735716302004!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 213px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-          <div class="col-lg-5">
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email</h3>
-                  <p><a href="mailto:priyalm2@illinois.edu">priyalm2@illinois.edu</a></p>
-                </div>
-              </div>
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-linkedin"></i>
-                <div>
-                  <h3>LinkedIn</h3>
-                  <p><a href="https://www.linkedin.com/in/priyal-maniar" target="_blank">priyal-maniar</a></p>
-                </div>
-              </div>
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-github"></i>
-                <div>
-                  <h3>GitHub</h3>
-                  <p><a href="https://github.com/PriyalManiar" target="_blank">PriyalManiar</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section id="contact" class="contact section contact-centered">
+      <div class="container" data-aos="fade-up">
+        <p class="contact-label">Contact</p>
+        <h2 class="contact-heading">Say hello.</h2>
+        <p class="contact-intro">Whether it's a job opportunity, a project idea, or just a conversation — my inbox is always open.</p>
+        <div class="contact-email-wrap">
+          <a href="mailto:priyalm2@illinois.edu" class="contact-email">priyalm2@illinois.edu</a>
         </div>
+        <p class="contact-location"><i class="bi bi-geo-alt"></i> Champaign, IL</p>
+        <div class="contact-cards">
+          <a href="https://www.linkedin.com/in/priyal-maniar" target="_blank" rel="noopener" class="contact-card">
+            <span class="contact-card-title">LinkedIn</span>
+            <span class="contact-card-handle">/in/priyal-maniar</span>
+          </a>
+          <a href="https://github.com/PriyalManiar" target="_blank" rel="noopener" class="contact-card">
+            <span class="contact-card-title">GitHub</span>
+            <span class="contact-card-handle">@PriyalManiar</span>
+          </a>
+          <a href="#" target="_blank" rel="noopener" class="contact-card" aria-label="Tableau Public">
+            <span class="contact-card-title">Tableau Public</span>
+            <span class="contact-card-handle">@yourname</span>
+          </a>
+          <a href="#" class="contact-card" aria-label="Resume">
+            <span class="contact-card-title">Resume</span>
+            <span class="contact-card-handle">View PDF</span>
+          </a>
+        </div>
+        <p class="contact-availability"><span class="contact-bullet"></span> Available for opportunities starting Summer 2026</p>
       </div>
     </section>
   </main>
