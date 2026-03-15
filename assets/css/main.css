@@ -95,19 +95,38 @@ h6 {
 .header {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 15px 0;
+  padding: 0;
   transition: all 0.5s;
   z-index: 997;
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
 .header .logo {
-  line-height: 1;
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
-.header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+.header .container-fluid {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.header .logo img,
+.header .logo svg,
+.header .logo .logo-svg,
+#header .logo svg {
+  height: 72px !important;
+  width: auto !important;
+  max-height: 72px !important;
+  min-height: 0 !important;
+  margin: 0 8px 0 0;
+  padding: 0;
+  display: block;
+  flex-shrink: 0;
+  vertical-align: top;
 }
 
 .header .logo h1 {
@@ -412,8 +431,11 @@ h6 {
   font-size: 14px;
   padding: 18px 0 !important;
   position: relative;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  box-sizing: border-box;
   background: rgba(255,255,255,.82);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);

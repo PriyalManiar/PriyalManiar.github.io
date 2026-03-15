@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 152 152" style="overflow:visible">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
+
+      .cm{stroke:#3a7878;stroke-width:1.8;stroke-linecap:round;fill:none;stroke-dasharray:18;stroke-dashoffset:18}
+      .cm-tl-v{animation:drawCM .35s ease 0s forwards}
+      .cm-tl-h{animation:drawCM .35s ease .08s forwards}
+      .cm-tr-v{animation:drawCM .35s ease .12s forwards}
+      .cm-tr-h{animation:drawCM .35s ease .18s forwards}
+      .cm-bl-v{animation:drawCM .35s ease .06s forwards}
+      .cm-bl-h{animation:drawCM .35s ease .14s forwards}
+      .cm-br-v{animation:drawCM .35s ease .16s forwards}
+      .cm-br-h{animation:drawCM .35s ease .22s forwards}
+      @keyframes drawCM{to{stroke-dashoffset:0}}
+
+      .box-rect{stroke:#3a7878;stroke-width:1.8;fill:none;stroke-dasharray:400;stroke-dashoffset:400;animation:drawBox 1s cubic-bezier(.4,0,.2,1) .4s forwards}
+      .inner-rect{stroke:#aed8d8;stroke-width:0.6;fill:none;stroke-dasharray:370;stroke-dashoffset:370;animation:drawBox .7s ease .9s forwards}
+      @keyframes drawBox{to{stroke-dashoffset:0}}
+
+      .pm-letters{opacity:0;animation:riseIn .55s cubic-bezier(.2,.8,.3,1) 1.4s forwards}
+      @keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+      .wave1{fill:none;stroke:#5aa0a0;stroke-width:1.2;opacity:0;stroke-dasharray:100;stroke-dashoffset:100;animation:drawWave .6s ease 1.9s forwards,waveShow .1s ease 1.9s forwards,waveDrift1 3.2s ease-in-out 2.6s infinite}
+      .wave2{fill:none;stroke:#88cccc;stroke-width:0.7;opacity:0;stroke-dasharray:100;stroke-dashoffset:100;animation:drawWave .6s ease 2.1s forwards,waveShow .1s ease 2.1s forwards,waveDrift2 3.2s ease-in-out 2.6s infinite}
+      @keyframes drawWave{to{stroke-dashoffset:0}}
+      @keyframes waveShow{to{opacity:1}}
+      @keyframes waveDrift1{
+        0%,100%{d:path("M 36 108 C 51 100 61 116 76 108 C 91 100 101 116 116 108")}
+        50%{d:path("M 36 108 C 51 116 61 100 76 108 C 91 116 101 100 116 108")}
+      }
+      @keyframes waveDrift2{
+        0%,100%{d:path("M 36 116 C 51 108 61 122 76 116 C 91 108 101 122 116 116")}
+        50%{d:path("M 36 116 C 51 122 61 108 76 116 C 91 122 101 108 116 116")}
+      }
+    </style>
+  </defs>
+
+  <!-- crop marks -->
+  <line class="cm cm-tl-v" x1="26" y1="6"   x2="26"  y2="26"/>
+  <line class="cm cm-tl-h" x1="6"  y1="26"  x2="26"  y2="26"/>
+  <line class="cm cm-tr-v" x1="126" y1="6"  x2="126" y2="26"/>
+  <line class="cm cm-tr-h" x1="126" y1="26" x2="146" y2="26"/>
+  <line class="cm cm-bl-v" x1="26"  y1="126" x2="26" y2="146"/>
+  <line class="cm cm-bl-h" x1="6"   y1="126" x2="26" y2="126"/>
+  <line class="cm cm-br-v" x1="126" y1="126" x2="126" y2="146"/>
+  <line class="cm cm-br-h" x1="126" y1="126" x2="146" y2="126"/>
+
+  <!-- box -->
+  <rect class="box-rect"   x="26" y="26" width="100" height="100" rx="2"/>
+  <rect class="inner-rect" x="32" y="32" width="88"  height="88"  rx="1"/>
+
+  <!-- PM -->
+  <text class="pm-letters"
+    x="76" y="93"
+    text-anchor="middle"
+    font-family="Cormorant Garamond, serif"
+    font-size="52" font-weight="600"
+    fill="#182830" letter-spacing="-2">PM</text>
+
+  <!-- waves -->
+  <path class="wave1" d="M 36 108 C 51 100 61 116 76 108 C 91 100 101 116 116 108"/>
+  <path class="wave2" d="M 36 116 C 51 108 61 122 76 116 C 91 108 101 122 116 116"/>
+</svg>
