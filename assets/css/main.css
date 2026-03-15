@@ -766,6 +766,7 @@ section + section,
   font-size: 60px;
   text-shadow: 2px 2px 4px rgba(229, 233, 236, 0.557);
 }
+
 .hero-container {
   min-height: 200px;
 }
