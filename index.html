@@ -37,6 +37,11 @@
 
   <!-- Aura pastel teal + blue theme (inlined so it works with base href) -->
   <style>
+    /* Disable any dark overlay from main.css (e.g. when main.css loads from GitHub) */
+    body.index-page::before {
+      display: none !important;
+      content: none !important;
+    }
     /* Pastel teal + blue palette */
     body.index-page {
       --teal-deep:    #4db6ac;

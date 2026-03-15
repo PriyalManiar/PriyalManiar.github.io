@@ -57,83 +57,7 @@
   scroll-behavior: smooth;
 }
 
-/*--------------------------------------------------------------
-# Continuous animated background for index page
-# (subtle gradient, runs behind entire page)
---------------------------------------------------------------*/
-html {
-  min-height: 100%;
-}
-
-body.index-page {
-  /* Make all sections/containers that use --background-color transparent
-     so the animated gradient behind the page shows through everywhere */
-  --background-color: transparent;
-}
-
-body.index-page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    -45deg,
-    #020617,
-    #022c22,
-    #0b3b4b,
-    #020617
-  );
-  background-size: 260% 260%;
-  animation: index-gradient-flow 40s ease-in-out infinite;
-}
-
-@keyframes index-gradient-flow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/*--------------------------------------------------------------
-# Floating teal balls theme (soft blur, non-distracting)
---------------------------------------------------------------*/
-.floating-balls {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.floating-balls .ball {
-  position: absolute;
-  border-radius: 50%;
-  /* Slightly stronger teal + softer blur so it's visible but still subtle */
-  background: radial-gradient(circle at 30% 30%, rgba(45, 212, 191, 0.35), rgba(15, 118, 110, 0.12));
-  filter: blur(30px);
-  animation: float-ball 18s ease-in-out infinite;
-}
-
-.floating-balls .ball-1 { width: 180px; height: 180px; left: 5%; top: 15%; animation-delay: 0s; }
-.floating-balls .ball-2 { width: 140px; height: 140px; left: 75%; top: 25%; animation-delay: -4s; }
-.floating-balls .ball-3 { width: 220px; height: 220px; left: 50%; top: 60%; animation-delay: -8s; }
-.floating-balls .ball-4 { width: 100px; height: 100px; left: 25%; top: 70%; animation-delay: -2s; }
-.floating-balls .ball-5 { width: 160px; height: 160px; left: 85%; top: 55%; animation-delay: -11s; }
-.floating-balls .ball-6 { width: 120px; height: 120px; left: 10%; top: 45%; animation-delay: -6s; }
-.floating-balls .ball-7 { width: 200px; height: 200px; left: 60%; top: 8%; animation-delay: -14s; }
-.floating-balls .ball-8 { width: 90px; height: 90px; left: 40%; top: 80%; animation-delay: -3s; }
-
-@keyframes float-ball {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(15px, -20px) scale(1.02); }
-  50% { transform: translate(-10px, 10px) scale(0.98); }
-  75% { transform: translate(-15px, -10px) scale(1.01); }
-}
-
-/* Ensure page content sits above the balls; sections use semi-transparent bg so balls show through */
-.main {
-  position: relative;
-  z-index: 1;
-}
+/* Theme for index page is in index.html inline styles (pastel orbs). No competing background here. */
 
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
@@ -142,11 +66,6 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
-}
-
-/* Index page: light base so floating balls are visible */
-.index-page {
-  background-color: #f5faf9;
 }
 
 a {
