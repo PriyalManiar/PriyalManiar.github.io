@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&amp;family=DM+Sans:wght@300;400;500&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -100,48 +100,87 @@
   </header>
   <main class="main">
 
-    <!-- About Section -->
-    <section id="about" class="about section">
+    <!-- About Section (reference: domain cards + highlights Swiper) -->
+    <section id="about" class="about section about-section" data-aos="fade-up">
+      <div class="about-section-inner">
+        <div class="sec-lbl">About</div>
+        <h2 class="sec-h2">A little bit of <em>everything.</em></h2>
+        <div class="sec-rule"></div>
+        <p class="sec-sub">I've worked across seven domains — from hospital operating rooms to financial dashboards to climate data pipelines. Here's where my work has taken me.</p>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-12 col-lg-3">
-            <img src="assets/img/profile-photo.png" class="img-fluid about-profile-img" alt="">
-          </div>
-          <div class="col-12 col-lg-8 content about-content">
-            <h2 class="about-heading">Information Management Graduate Student</h2>
-            <p class="fst-italic py-3">
-            I am an inquisitive learner with a strong technical foundation and an interest in the use of data science in decision-making. I am keen on exploring the intersection of technology and business domains. Coupled with strong communication and collaborative skills, I look forward to leveraging my strengths in the landscape of technology and business.            </p>
-            <div class="row">
-              <div class="col-lg-9">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Achievement:</strong><span>J.N. Tata Scholar</span></li>
-                    <div style="padding-left: 20px; margin-top: -14px; display:inline-flexbox; white-space:nowrap; margin-right: 20px">Recipient of a <b>merit-based scholarship</b> by <a href= "https://jntataendowment.org">J.N. Tata Endowment Scholarship for Higher Education of Indians</a>, Tata Trusts, </div>
-                    <div style="padding-left: 20px"> to support overseas graduate studies.</div>
-                  <li style="margin-top:15px"><i  class="bi bi-chevron-right"></i> <strong>Scores:</strong><span>Graduate Record Examination (GRE) - 324/340</span></li>
-                    <div style="padding-left: 110px; margin-top: -16px;"> · Quantitative Reasoning - 166/170 </div>
-                    <div style="padding-left: 110px; margin-top: 3px;">· Qualitative Reasoning - 158/170 </div>
-                  <li style="margin-top:15px"><i  class="bi bi-chevron-right"></i> <strong>Interests:</strong><span>Reading, Arts & Craft, Badminton, Cafe-Hopping</span></li>
-                  <li style="margin-top:15px"><i  class="bi bi-chevron-right"></i> <strong>Languages:</strong><span>English, Hindi, Gujarati, Marathi</span></li>
-
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">
-              
-            </p>
-          </div>
+        <div class="domains-grid">
+          <div class="domain-card dg"><div class="d-name">Finance &amp; Business</div><div class="d-count">3 projects</div></div>
+          <div class="domain-card db"><div class="d-name">Healthcare &amp; Medical</div><div class="d-count">4 projects</div></div>
+          <div class="domain-card dg"><div class="d-name">Climate &amp; Environment</div><div class="d-count">2 projects</div></div>
+          <div class="domain-card db"><div class="d-name">Public Policy</div><div class="d-count">2 projects</div></div>
+          <div class="domain-card dg"><div class="d-name">Education &amp; Academic</div><div class="d-count">3 projects</div></div>
+          <div class="domain-card db"><div class="d-name">Technology &amp; Systems</div><div class="d-count">4 projects</div></div>
+          <div class="domain-card dg"><div class="d-name">Consulting</div><div class="d-count">2 projects</div></div>
         </div>
 
-      </div>
+        <div class="highlights-head">
+          <h3>A few <em>highlights</em> along the way</h3>
+          <p>Moments that shaped the journey</p>
+        </div>
 
-    </section><!-- /About Section -->
+        <div class="carousel-outer">
+          <div class="swiper about-highlights-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="hcard">
+                  <div class="hc-bar" style="background:var(--tide)"></div>
+                  <div class="hc-num">01</div>
+                  <div class="hc-title">J.N. Tata Endowment Scholar</div>
+                  <div class="hc-body">Merit-based scholarship by Tata Trusts awarded to support overseas graduate studies — recognising academic excellence and leadership potential.</div>
+                  <span class="hc-tag" style="background:var(--foam);color:#3a7878">Merit Scholarship</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="hcard">
+                  <div class="hc-bar" style="background:#4870a8"></div>
+                  <div class="hc-num">02</div>
+                  <div class="hc-title">Two Peer-Reviewed Publications</div>
+                  <div class="hc-body">IEEE — hand gesture rehabilitation system using deep learning. Thieme — AI autosegmentation of the LAD artery in radiotherapy planning. Both in medical AI.</div>
+                  <span class="hc-tag" style="background:var(--pb);color:#4870a8">IEEE · Thieme</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="hcard">
+                  <div class="hc-bar" style="background:#4a8858"></div>
+                  <div class="hc-num">03</div>
+                  <div class="hc-title">AgTech Hackathon Winner</div>
+                  <div class="hc-body">Won a competitive AgTech hackathon building a data-driven solution at the intersection of agriculture and climate using spatial analytics and predictive modeling.</div>
+                  <span class="hc-tag" style="background:var(--pg);color:#4a8858">1st Place · AgTech</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="hcard">
+                  <div class="hc-bar" style="background:#4870a8"></div>
+                  <div class="hc-num">04</div>
+                  <div class="hc-title">Illinois Dept. of Public Health</div>
+                  <div class="hc-body">Leading a team of 5 researchers in collaboration with IDPH, studying the impact of climate and extreme weather events on public health outcomes in Illinois.</div>
+                  <span class="hc-tag" style="background:var(--pb);color:#4870a8">Research · Public Health</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="hcard">
+                  <div class="hc-bar" style="background:var(--tide)"></div>
+                  <div class="hc-num">05</div>
+                  <div class="hc-title">Coached 100+ Students</div>
+                  <div class="hc-body">Mentored over 100 students across career development, research guidance, and academic programs through the CCI program and university-wide initiatives at UIUC.</div>
+                  <span class="hc-tag" style="background:var(--foam);color:#3a7878">Mentorship · Leadership</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button type="button" class="cn-arr about-highlights-prev" aria-label="Previous">&#8249;</button>
+            <div class="about-highlights-pagination dots"></div>
+            <button type="button" class="cn-arr about-highlights-next" aria-label="Next">&#8250;</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills section">
@@ -448,6 +487,21 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    (function() {
+      var el = document.querySelector('.about-highlights-swiper');
+      if (!el) return;
+      new Swiper('.about-highlights-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 14,
+        breakpoints: { 640: { slidesPerView: 1.2 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+        navigation: { nextEl: '.about-highlights-next', prevEl: '.about-highlights-prev' },
+        pagination: { el: '.about-highlights-pagination', clickable: true },
+        loop: true
+      });
+    })();
+  </script>
 
 </body>
 

@@ -707,6 +707,90 @@ section + section,
 }
 
 /*--------------------------------------------------------------
+# Section Headers — Priyal Maniar (sec-lbl, sec-h2, sec-rule, sec-sub)
+# Use these classes for consistent header + subtitle styling site-wide.
+--------------------------------------------------------------*/
+:root {
+  --tide: #5aa0a0;
+  --glass: #aed8d8;
+  --mist: #d0eaea;
+  --ink: #182830;
+  --rip: #8a9eaa;
+}
+
+.sec-lbl {
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--tide);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.sec-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  letter-spacing: -0.8px;
+  color: var(--ink);
+  line-height: 1.12;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.sec-h2 em {
+  color: var(--tide);
+  font-style: italic;
+}
+
+.sec-rule {
+  width: 56px;
+  height: 2px;
+  background: var(--glass);
+  margin-bottom: 16px;
+  border: none;
+  display: block;
+}
+
+.sec-sub {
+  font-size: 19px;
+  color: var(--rip);
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+.sec-header {
+  padding-bottom: 48px;
+}
+
+.sec-header-center .sec-lbl,
+.sec-header-center .sec-h2 {
+  text-align: center;
+}
+
+.sec-header-center .sec-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sec-header-center .sec-sub {
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .sec-lbl {
+    font-size: 12px;
+  }
+  .sec-h2 {
+    font-size: 40px;
+  }
+  .sec-sub {
+    font-size: 17px;
+  }
+}
+
+/*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
@@ -816,43 +900,285 @@ section + section,
 }
 
 /*--------------------------------------------------------------
-# About Section
+# About Section — reference: domain cards + highlights Swiper
+   Override theme section styles so reference aesthetics apply.
 --------------------------------------------------------------*/
-.about .content h2,
-.about-heading {
-  font-weight: 700;
-  font-size: 24px;
+#about.about-section.section {
+  scroll-margin-top: -8px;
+  --deep: #3a7878;
+  --tide: #5aa0a0;
+  --sea: #7bbcbc;
+  --glass: #aed8d8;
+  --mist: #d0eaea;
+  --foam: #e8f6f6;
+  --pg: #d8eedd;
+  --pg-b: #4a8858;
+  --pg-t: #b8d8c0;
+  --pb: #d8e8f8;
+  --pb-b: #4870a8;
+  --pb-t: #b8cce8;
+  --ink: #182830;
+  --depth: #253c4a;
+  --cur: #4a6070;
+  --rip: #8a9eaa;
+  --lt: #b8ccd4;
+  --wh: #fff;
+  font-family: 'DM Sans', sans-serif !important;
+  color: var(--ink) !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  background-color: transparent !important;
 }
-.about-profile-img {
+
+#about .about-section-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 80px 24px 72px;
+}
+
+/* Heading */
+#about .sec-lbl {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--tide);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+#about .sec-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  letter-spacing: -0.8px;
+  color: var(--ink);
+  line-height: 1.12;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+#about .sec-h2 em {
+  color: var(--tide);
+  font-style: italic;
+}
+#about .sec-rule {
+  width: 48px;
+  height: 1.5px;
+  background: var(--glass);
+  margin-bottom: 14px;
+}
+#about .sec-sub {
+  font-size: 19px;
+  color: var(--rip);
+  font-weight: 300;
+  line-height: 1.75;
   max-width: 100%;
+  margin-bottom: 48px;
+}
+
+/* Domain cards grid */
+#about .domains-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+#about .domain-card {
+  padding: 32px 16px 28px;
+  border-radius: 16px;
+  border: 1px solid;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+  min-height: 100px;
+}
+#about .domain-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+#about .d-name {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+#about .d-count {
+  font-size: 12px;
+  font-weight: 300;
+  margin-top: 8px;
+  opacity: 0.55;
+}
+#about .domain-card.dg,
+#about .domain-card.db {
+  background: #ffffff !important;
+  border-color: #d0eaea !important;
+  color: #3a7878 !important;
+}
+
+/* Highlights heading */
+#about .highlights-head {
+  margin-bottom: 36px;
+}
+#about .highlights-head h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.4px;
+  margin-bottom: 6px;
+}
+#about .highlights-head h3 em {
+  color: var(--tide);
+  font-style: italic;
+}
+#about .highlights-head p {
+  font-size: 17px;
+  color: var(--rip);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Carousel outer + Swiper */
+#about .carousel-outer {
+  position: relative;
+}
+#about .about-highlights-swiper {
+  overflow: hidden;
+  margin: 0 -4px;
+  padding: 4px 4px 4px;
+}
+#about .about-highlights-swiper .swiper-slide {
   height: auto;
 }
-@media (min-width: 992px) {
-  .about-content {
-    margin-left: 45px;
-  }
+
+/* Highlight card (hcard) */
+#about .hcard {
+  background: var(--wh) !important;
+  border: 1px solid var(--mist) !important;
+  border-radius: 6px 20px 6px 20px !important;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  height: 100%;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+#about .hcard:hover {
+  border-color: var(--glass);
+}
+#about .hc-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+#about .hc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--lt);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+#about .hc-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.1px;
+  line-height: 1.35;
+}
+#about .hc-body {
+  font-size: 14px;
+  color: var(--cur);
+  line-height: 1.75;
+  font-weight: 300;
+  flex: 1;
+}
+#about .hc-tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 14px;
+  letter-spacing: 0.3px;
 }
 
-.about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about .content ul li {
-  margin-bottom: 20px;
+/* Carousel nav (arrows + dots) */
+#about .carousel-nav {
   display: flex;
   align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+#about .cn-arr {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--mist);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--rip);
+  font-size: 22px;
+  transition: all 0.2s;
+  background: var(--wh);
+  user-select: none;
+  flex-shrink: 0;
+}
+#about .cn-arr:hover {
+  border-color: var(--glass);
+  color: var(--ink);
+}
+#about .carousel-nav .dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#about .carousel-nav .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--mist);
+  border: 1px solid var(--glass);
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  margin: 0;
+  opacity: 1;
+}
+#about .carousel-nav .swiper-pagination-bullet-active {
+  background: var(--tide);
+  border-color: var(--tide);
+  width: 24px;
+  border-radius: 4px;
 }
 
-.about .content ul strong {
-  margin-right: 10px;
-}
-
-.about .content ul i {
-  font-size: 16px;
-  margin-right: 5px;
-  color: var(--accent-color);
-  line-height: 0;
+/* About responsive */
+@media (max-width: 768px) {
+  #about .about-section-inner {
+    padding: 60px 24px;
+  }
+  #about .domains-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  #about .domain-card {
+    padding: 28px 14px 24px;
+    min-height: 90px;
+  }
+  #about .hcard {
+    padding: 26px 22px;
+    min-height: 200px;
+  }
+  #about .sec-h2 {
+    font-size: 32px;
+  }
 }
 
 /*--------------------------------------------------------------
