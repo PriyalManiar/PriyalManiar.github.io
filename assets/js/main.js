@@ -35,16 +35,42 @@
   mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 
   /**
-   * Hide mobile nav on same-page/hash links
+   * Hide mobile nav on same-page/hash links (anchor links)
    */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
+  document.querySelectorAll('#navmenu a[href^="#"]').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
       if (document.querySelector('.mobile-nav-active')) {
         mobileNavToogle();
       }
     });
-
   });
+
+  /**
+   * Single-page: update active nav link on scroll
+   */
+  const navLinks = document.querySelectorAll('#navmenu a[href^="#"]');
+  if (navLinks.length > 0) {
+    const sections = [];
+    navLinks.forEach(link => {
+      const id = link.getAttribute('href');
+      if (id && id !== '#') {
+        const el = document.querySelector(id);
+        if (el) sections.push({ id, el, link });
+      }
+    });
+    function updateActiveNav() {
+      const scrollY = window.scrollY;
+      let current = null;
+      sections.forEach(({ el, link }) => {
+        const top = el.offsetTop - 100;
+        if (scrollY >= top) current = link;
+      });
+      navLinks.forEach(link => link.classList.remove('active'));
+      if (current) current.classList.add('active');
+    }
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('load', updateActiveNav);
+  }
 
   /**
    * Toggle mobile nav dropdowns
@@ -155,21 +181,73 @@
   });  
 
   /**
+   * Project flip cards: Details / Back toggles card flip (delegated so it works after Isotope)
+   */
+  document.body.addEventListener('click', function(e) {
+    var btn = e.target.closest('.btn-flip');
+    if (!btn) return;
+    var card = btn.closest('.project-flip-card');
+    if (!card) return;
+    e.preventDefault();
+    e.stopPropagation();
+    card.classList.toggle('flipped');
+  });
+
+  /**
+   * Experience cards: click to toggle expanded description (hover also expands)
+   */
+  document.body.addEventListener('click', function(e) {
+    var card = e.target.closest('#experience .experience-card');
+    if (!card) return;
+    card.classList.toggle('expanded');
+  });
+
+  /**
+   * Update project filter counts (e.g. "All (11)")
+   */
+  function updatePortfolioFilterCounts() {
+    document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+      var container = isotopeItem.querySelector('.isotope-container');
+      if (!container) return;
+      var items = container.querySelectorAll('.isotope-item');
+      isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(li) {
+        var filterSel = li.getAttribute('data-filter');
+        var countSpan = li.querySelector('.filter-count');
+        if (!countSpan) return;
+        var count;
+        if (filterSel === '*') {
+          count = items.length;
+        } else {
+          count = 0;
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].matches(filterSel)) count++;
+          }
+        }
+        countSpan.textContent = '(' + count + ')';
+      });
+    });
+  }
+
+  /**
    * Init isotope layout and filters
    */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+    let container = isotopeItem.querySelector('.isotope-container');
+
+    updatePortfolioFilterCounts();
 
     let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+    imagesLoaded(container, function() {
+      initIsotope = new Isotope(container, {
         itemSelector: '.isotope-item',
         layoutMode: layout,
         filter: filter,
         sortBy: sort
       });
+      updatePortfolioFilterCounts();
     });
 
     isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
@@ -186,5 +264,7 @@
     });
 
   });
+
+  window.addEventListener('load', updatePortfolioFilterCounts);
 
 })();
