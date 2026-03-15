@@ -57,7 +57,7 @@
   scroll-behavior: smooth;
 }
 
-/* Theme for index page is in index.html inline styles (pastel orbs). No competing background here. */
+/* DO NOT add index-page theme here: no body.index-page, no ::before overlay, no gradient/orb styles. Theme is only in index.html. */
 
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
@@ -184,7 +184,7 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-color);
+    color: #1a3040;
     font-size: 15px;
     padding: 0 2px;
     font-family: var(--nav-font);
@@ -193,8 +193,19 @@ h6 {
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
-    transition: 0.3s;
+    transition: color 0.2s;
     position: relative;
+  }
+
+  .navmenu a:hover {
+    color: #4a90b0;
+  }
+
+  .navmenu a.active,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: #4a90b0;
+    font-weight: 500;
   }
 
   .navmenu a i,
@@ -206,28 +217,8 @@ h6 {
   }
 
   .navmenu>ul>li>a:before {
-    content: "";
-    position: absolute;
-    height: 2px;
-    bottom: -6px;
-    left: 0;
-    background-color: var(--nav-hover-color);
-    visibility: hidden;
-    width: 0px;
-    transition: all 0.3s ease-in-out 0s;
-  }
-
-  .navmenu a:hover:before,
-  .navmenu li:hover>a:before,
-  .navmenu .active:before {
-    visibility: visible;
-    width: 25px;
-  }
-
-  .navmenu li:hover>a,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-hover-color);
+    content: none;
+    display: none;
   }
 
   .navmenu .dropdown ul {
@@ -418,10 +409,21 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: var(--background-color);
   font-size: 14px;
-  padding: 40px 0;
+  padding: 18px 0 !important;
   position: relative;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(178,223,219,.5);
+  box-shadow: none;
+}
+.footer .container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .footer .copyright p {
@@ -452,7 +454,7 @@ h6 {
 }
 
 .footer .credits {
-  margin-top: 10px;
+  margin-top: 2px;
   font-size: 13px;
   text-align: center;
 }
@@ -537,6 +539,42 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Side dots navigation (desktop only)
+--------------------------------------------------------------*/
+.side-dots {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 997;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--default-color), transparent 60%);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.side-dot:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 30%);
+  transform: scale(1.2);
+}
+
+.side-dot.active {
+  background: #4a90b0;
+  transform: scale(1.25);
+}
+
+/*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
@@ -594,6 +632,12 @@ section,
   overflow: clip;
 }
 
+/* Tighter gap between sections: less space before each section header (except the first) */
+section + section,
+.section + .section {
+  padding-top: 28px;
+}
+
 @media (max-width: 1199px) {
 
   section,
@@ -604,6 +648,7 @@ section,
 
 /*--------------------------------------------------------------
 # Global Section Titles
+# Do NOT add body.index-page, ::before, or index-page background/gradient here.
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
@@ -633,6 +678,11 @@ section,
 
 .section-title p {
   margin-bottom: 0;
+}
+
+/* Projects section: less space between heading and filter buttons */
+#portfolio .section-title {
+  padding-bottom: 28px;
 }
 
 /*--------------------------------------------------------------

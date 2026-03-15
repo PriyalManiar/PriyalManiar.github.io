@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
- <!-- =======================================================
-  * Template Name: Kelly
-  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -35,7 +27,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- Aura pastel teal + blue theme (inlined so it works with base href) -->
+  <!-- DO NOT MODIFY: Index page theme (pastel orbs). Do not change or remove this block. -->
   <style>
     /* Disable any dark overlay from main.css (e.g. when main.css loads from GitHub) */
     body.index-page::before {
@@ -229,6 +221,121 @@
     }
   </style>
 
+  <!-- Section headers only: typography/layout for .section-title and .section-label. Do NOT add theme, background, body, ::before, or orb styles here. -->
+  <style id="section-headers-styles">
+    /* Shared section header format: small label + main heading + optional intro */
+    .section-title .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--default-color), transparent 25%);
+      margin: 0 0 0.5rem 0;
+    }
+    .section-title .section-heading {
+      font-size: clamp(2rem, 4.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 0 0 0.5rem 0;
+    }
+    .section-title .section-heading:after {
+      display: none;
+    }
+    .section-title .section-intro {
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--default-color);
+    }
+    .section-title {
+      text-align: center;
+    }
+  </style>
+
+  <!-- Nav bar overrides (load after main.css so they win over template) -->
+  <style id="nav-bar-overrides">
+    @media (min-width: 1200px) {
+      .header .navmenu a,
+      .header .navmenu a:focus {
+        color: #1a3040 !important;
+        font-weight: 400;
+        position: relative;
+        transition: color 0.2s;
+      }
+      .header .navmenu a:hover {
+        color: #4a90b0 !important;
+      }
+      .header .navmenu a.active,
+      .header .navmenu .active,
+      .header .navmenu .active:focus {
+        color: #4a90b0 !important;
+        font-weight: 500;
+      }
+      .header .navmenu > ul > li > a:before {
+        display: none !important;
+      }
+    }
+  </style>
+
+  <!-- Footer: same frosted look as nav bar + reduced height -->
+  <style id="footer-height">
+    body.index-page #footer.footer {
+      background: rgba(255,255,255,.82) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(178,223,219,.5);
+      border-bottom: none;
+      box-shadow: none;
+    }
+    #footer.footer {
+      padding-top: 18px !important;
+      padding-bottom: 18px !important;
+    }
+    #footer .container {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    #footer .copyright p,
+    #footer .credits {
+      margin: 0 !important;
+      line-height: 1.45 !important;
+    }
+    #footer .credits {
+      margin-top: 6px !important;
+    }
+  </style>
+
+  <!-- Sticky header + side dots visibility (ensure they work on index) -->
+  <style id="sticky-and-dots">
+    body.index-page {
+      padding-top: 72px;
+    }
+    body.index-page #header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 9999 !important;
+    }
+    .side-dots {
+      display: none !important;
+      z-index: 9998 !important;
+    }
+    @media (min-width: 768px) {
+      .side-dots {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 14px !important;
+        position: fixed !important;
+        right: 24px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+      }
+    }
+  </style>
+
 </head>
 
 <body class="index-page">
@@ -255,6 +362,7 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#portfolio">Projects</a></li>
@@ -271,6 +379,18 @@
 
     </div>
   </header>
+
+  <!-- Side dots nav: vertical dots for section navigation (hidden on small mobile only) -->
+  <nav class="side-dots d-none d-md-flex" aria-label="Page sections">
+    <a href="#hero" class="side-dot active" aria-label="Home"></a>
+    <a href="#about" class="side-dot" aria-label="About"></a>
+    <a href="#skills" class="side-dot" aria-label="Skills"></a>
+    <a href="#education" class="side-dot" aria-label="Education"></a>
+    <a href="#experience" class="side-dot" aria-label="Experience"></a>
+    <a href="#portfolio" class="side-dot" aria-label="Projects"></a>
+    <a href="#extracurriculars" class="side-dot" aria-label="Extracurriculars"></a>
+    <a href="#contact" class="side-dot" aria-label="Contact"></a>
+  </nav>
 
   <main class="main">
 
@@ -326,7 +446,8 @@
     <!-- About Section -->
     <section id="about" class="about section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
+        <p class="section-label">About</p>
+        <h2 class="section-heading">A little of everything, a lot of curiosity.</h2>
       </div>
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4 justify-content-center">
@@ -358,7 +479,8 @@
     <!-- Skills Section -->
     <section id="skills" class="skills section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
+        <p class="section-label">Skills</p>
+        <h2 class="section-heading">More tools, more possibilities.</h2>
       </div>
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-3 skills-grid">
@@ -450,7 +572,8 @@
     <!-- Education Section -->
     <section id="education" class="resume section">
       <div class="container section-title" data-aos="fade-up">
-        <h2 style="margin-bottom:-40px">Education</h2>
+        <p class="section-label">Education</p>
+        <h2 class="section-heading">The classrooms that shaped me.</h2>
       </div>
       <div class="container">
         <div class="row gy-3">
@@ -499,7 +622,8 @@
     <!-- Experience Section -->
     <section id="experience" class="portfolio section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Experience</h2>
+        <p class="section-label">Experience</p>
+        <h2 class="section-heading">Chapters worth reading.</h2>
       </div>
       <div class="container">
         <div class="row gy-3" data-aos="fade-up" data-aos-delay="200">
@@ -719,7 +843,8 @@
     <!-- Projects Section -->
     <section id="portfolio" class="portfolio section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Projects</h2>
+        <p class="section-label">Projects</p>
+        <h2 class="section-heading">Curiosity, shipped.</h2>
       </div>
       <div class="container">
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
@@ -853,7 +978,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-12 portfolio-item isotope-item filter-consulting">
+            <div class="col-lg-3 col-md-6 col-12 portfolio-item isotope-item filter-causal">
               <div class="project-flip-card">
                 <div class="project-flip-inner">
                   <div class="project-flip-front">
@@ -1076,7 +1201,8 @@
     <!-- Extracurriculars Section -->
     <section id="extracurriculars" class="portfolio section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Extracurriculars</h2>
+        <p class="section-label">Extracurriculars</p>
+        <h2 class="section-heading">Beyond the desk.</h2>
       </div>
       <div class="container">
         <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
@@ -1167,10 +1293,12 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact section contact-centered">
+      <div class="container section-title" data-aos="fade-up">
+        <p class="section-label">Contact</p>
+        <h2 class="section-heading">Say hello.</h2>
+        <p class="section-intro">Whether it's a job opportunity, a project idea, or just a conversation — my inbox is always open.</p>
+      </div>
       <div class="container" data-aos="fade-up">
-        <p class="contact-label">Contact</p>
-        <h2 class="contact-heading">Say hello.</h2>
-        <p class="contact-intro">Whether it's a job opportunity, a project idea, or just a conversation — my inbox is always open.</p>
         <div class="contact-email-wrap">
           <a href="mailto:priyalm2@illinois.edu" class="contact-email">priyalm2@illinois.edu</a>
         </div>
@@ -1202,14 +1330,10 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Kelley</strong> All Rights Reserved
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Priyal Maniar</strong>. All rights reserved.</p>
         </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com">ThemeWagon</a>
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
 
@@ -1234,6 +1358,23 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Keep nav anchors on same page (base href would otherwise send #section to GitHub) -->
+  <script>
+    document.querySelectorAll('.navmenu a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var hash = this.getAttribute('href');
+        if (hash === '#' || !hash) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (history.pushState) history.pushState(null, '', hash);
+        }
+      });
+    });
+  </script>
 
 </body>
 

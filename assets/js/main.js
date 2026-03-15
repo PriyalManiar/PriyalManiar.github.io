@@ -46,9 +46,10 @@
   });
 
   /**
-   * Single-page: update active nav link on scroll
+   * Single-page: update active nav link and side dots on scroll
    */
   const navLinks = document.querySelectorAll('#navmenu a[href^="#"]');
+  const sideDots = document.querySelectorAll('.side-dot');
   if (navLinks.length > 0) {
     const sections = [];
     navLinks.forEach(link => {
@@ -67,10 +68,30 @@
       });
       navLinks.forEach(link => link.classList.remove('active'));
       if (current) current.classList.add('active');
+      sideDots.forEach(dot => dot.classList.remove('active'));
+      if (current) {
+        const href = current.getAttribute('href');
+        const activeDot = document.querySelector('.side-dot[href="' + href + '"]');
+        if (activeDot) activeDot.classList.add('active');
+      }
     }
     window.addEventListener('scroll', updateActiveNav);
     window.addEventListener('load', updateActiveNav);
   }
+
+  /**
+   * Side dots: smooth scroll to section on click (same-page behavior)
+   */
+  sideDots.forEach(dot => {
+    dot.addEventListener('click', function(e) {
+      e.preventDefault();
+      const hash = this.getAttribute('href');
+      if (hash && hash !== '#') {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
   /**
    * Toggle mobile nav dropdowns
