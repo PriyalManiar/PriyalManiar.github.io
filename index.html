@@ -229,7 +229,8 @@
       font-family: 'DM Sans', sans-serif !important; color: var(--ink) !important; font-size: 14px !important;
       line-height: 1.7 !important; padding: 0 !important; overflow: visible !important; background-color: transparent !important;
     }
-    #about .about-section-inner { max-width: 1320px; margin: 0 auto; padding: 80px 24px 72px; }
+    #about.about-section.section { margin-top: 0 !important; }
+    #about .about-section-inner { max-width: 1320px; margin: 0 auto; padding: 24px 24px 72px !important; }
     #about .sec-lbl { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: var(--tide); font-weight: 500; margin-bottom: 10px; }
     #about .sec-h2 { font-family: 'Cormorant Garamond', serif; font-size: 56px; letter-spacing: -0.8px; color: var(--ink); line-height: 1.12; font-weight: 600; margin-bottom: 10px; }
     #about .sec-h2 em { color: var(--tide); font-style: italic; }
@@ -243,7 +244,7 @@
     #about .domain-card.dg,
     #about .domain-card.db { background: #ffffff !important; border-color: #d0eaea !important; color: #3a7878 !important; }
     #about .highlights-head { margin-bottom: 36px; }
-    #about .highlights-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--ink); letter-spacing: -0.3px; margin-bottom: 6px; }
+    #about .highlights-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 37px; font-weight: 600; color: var(--ink); letter-spacing: -0.3px; margin-bottom: 6px; }
     #about .highlights-head h3 em { color: var(--tide); font-style: italic; }
     #about .highlights-head p { font-size: 17px; color: var(--rip); font-weight: 300; line-height: 1.6; }
     #about .carousel-outer { position: relative; }
@@ -259,7 +260,7 @@
     #about .carousel-nav { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
     #about .cn-arr { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--mist); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--rip); font-size: 22px; transition: all 0.2s; background: var(--wh); user-select: none; flex-shrink: 0; }
     #about .cn-arr:hover { border-color: var(--glass); color: var(--ink); }
-    #about .carousel-nav .dots { display: flex; gap: 10px; align-items: center; }
+    #about .carousel-nav .dots { display: flex; gap: 10px; align-items: center; justify-content: center; width: 100%; }
     #about .carousel-nav .swiper-pagination-bullet { width: 12px; height: 12px; border-radius: 50%; background: var(--mist); border: 1px solid var(--glass); cursor: pointer; transition: all 0.2s; flex-shrink: 0; margin: 0; opacity: 1; }
     #about .carousel-nav .swiper-pagination-bullet-active { background: var(--tide); border-color: var(--tide); width: 24px; border-radius: 4px; }
     @media (max-width: 768px) {
@@ -401,11 +402,11 @@
     }
     body.index-page #hero .hero-links {
       display: flex;
-      gap: 16px;
+      gap: 10px;
       align-items: center;
       width: 100%;
-      justify-content: space-between;
-      flex-wrap: nowrap;
+      justify-content: flex-start;
+      flex-wrap: wrap;
     }
     body.index-page #hero .hero-link-btn {
       padding: 12px 32px;
@@ -580,15 +581,31 @@
     body.index-page #about .hc-num { font-family: 'DM Sans', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; }
     body.index-page #about .hc-body { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 300 !important; line-height: 1.9 !important; }
     body.index-page #about .hc-tag { font-family: 'DM Sans', sans-serif !important; font-size: 12px !important; font-weight: 500 !important; }
-    body.index-page #about .highlights-head h3 { font-family: 'Cormorant Garamond', serif !important; font-size: 30px !important; font-weight: 600 !important; letter-spacing: -0.3px !important; }
+    body.index-page #about .highlights-head h3 { font-family: 'Cormorant Garamond', serif !important; font-size: 37px !important; font-weight: 600 !important; letter-spacing: -0.3px !important; }
     body.index-page #about .highlights-head p { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 300 !important; line-height: 1.9 !important; }
-    body.index-page #skills .skill-card-title { font-family: 'Cormorant Garamond', serif !important; font-size: 20px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
+    body.index-page #experience .experience-card-row { align-items: center !important; }
+    body.index-page #experience .experience-dates {
+      padding: 0 10px 0 14px !important;
+      align-self: center !important;
+    }
+    body.index-page #skills .skill-card-title { font-family: 'Cormorant Garamond', serif !important; font-size: 23px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
     body.index-page #skills .skill-tag { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
     body.index-page .contact-card-title { font-family: 'Cormorant Garamond', serif !important; font-size: 20px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
     body.index-page .contact-card-handle { font-family: 'DM Sans', sans-serif !important; font-size: 13px !important; font-weight: 400 !important; }
     body.index-page .contact-label { font-family: 'DM Sans', sans-serif !important; font-size: 12px !important; font-weight: 500 !important; letter-spacing: 0.2em !important; }
-    body.index-page .contact-heading { font-family: 'Cormorant Garamond', serif !important; font-weight: 700 !important; }
-    body.index-page .contact-intro { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 300 !important; line-height: 1.7 !important; }
+    body.index-page #contact .contact-heading {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-weight: 700 !important;
+      font-size: 64px !important;
+      letter-spacing: -0.8px !important;
+      line-height: 1.12 !important;
+    }
+    body.index-page #contact .contact-intro {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 19px !important;
+      font-weight: 300 !important;
+      line-height: 1.7 !important;
+    }
     body.index-page .project-flip-front .project-card-title { font-family: 'Cormorant Garamond', serif !important; font-size: 22px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
     body.index-page .project-flip-front .project-card-subtitle { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 300 !important; line-height: 1.9 !important; }
     body.index-page .project-card-org { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
@@ -823,20 +840,19 @@
            <span class="hero-meta-dot"></span>
            <span class="hero-meta-highlight">Open to full-time roles</span>
          </div>
-         <div class="hero-links">
-           <a href="https://github.com/PriyalManiar" target="_blank" rel="noopener" class="hero-link-btn">GitHub</a>
-           <a href="https://www.linkedin.com/in/priyal-maniar" target="_blank" rel="noopener" class="hero-link-btn">LinkedIn</a>
-           <a href="#" target="_blank" rel="noopener" class="hero-link-btn">Tableau Portfolio</a>
-           <a href="mailto:priyalm2@illinois.edu" class="hero-link-btn">Coffee chat?</a>
-         </div>
-         <div class="hero-about-wrap">
-           <a href="#about" class="hero-about-btn">
-             About me
-             <svg class="hero-about-icon" viewBox="0 0 24 24" aria-hidden="true">
-               <polyline points="6 9 12 15 18 9" />
-             </svg>
-           </a>
-         </div>
+       <div class="hero-links">
+         <a href="https://github.com/PriyalManiar" target="_blank" rel="noopener" class="hero-link-btn">GitHub</a>
+         <a href="https://www.linkedin.com/in/priyal-maniar" target="_blank" rel="noopener" class="hero-link-btn">LinkedIn</a>
+         <a href="#" target="_blank" rel="noopener" class="hero-link-btn">Tableau Portfolio</a>
+         <a href="mailto:priyalm2@illinois.edu" class="hero-link-btn">Coffee chat?</a>
+       </div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:10px;cursor:pointer"
+               onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">
+            <div style="width:41px;height:41px;border-radius:50%;border:1px solid #d0eaea;display:flex;align-items:center;justify-content:center;color:#b8ccd4;font-size:26px;transition:all .2s"
+                 onmouseenter="this.style.transform='translateY(3px)';this.style.borderColor='#5aa0a0';this.style.color='#5aa0a0'"
+                 onmouseleave="this.style.transform='translateY(0)';this.style.borderColor='#d0eaea';this.style.color='#b8ccd4'">↓</div>
+            <span style="font-size:26px;color:#b8ccd4;letter-spacing:.5px">scroll to explore</span>
+          </div>
        </div>
      </div>
    </section>
