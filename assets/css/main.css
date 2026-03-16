@@ -10,11 +10,11 @@
 # Font & Color Variables
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
-/* Fonts */
+/* Fonts — aligned with Typography System below */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: 'DM Sans', sans-serif;
+  --heading-font: 'Cormorant Garamond', serif;
+  --nav-font: 'DM Sans', sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -55,9 +55,231 @@
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/*--------------------------------------------------------------
+# Cross-browser (Safari / Chrome) consistency
+# Why they differ: different engines (WebKit vs Blink), font metrics,
+# backdrop-filter/blur rendering, scrollbars, color-mix() (Safari 16+).
+# Below reduces some of the visible gap.
+--------------------------------------------------------------*/
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
 /* DO NOT add index-page theme here: no body.index-page, no ::before overlay, no gradient/orb styles. Theme is only in index.html. */
+
+/*--------------------------------------------------------------
+# Typography System — Priyal Maniar Portfolio
+# Single source of truth for font, size, weight, line-height site-wide
+--------------------------------------------------------------*/
+/* ── BASE ── */
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ── HEADINGS ── */
+h1, h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 48px;
+  letter-spacing: -0.8px;
+  line-height: 1.12;
+}
+
+h1 em, h2 em {
+  font-style: italic;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+
+h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.1px;
+  line-height: 1.5;
+}
+
+h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0px;
+}
+
+/* ── BODY TEXT ── */
+p {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+p strong, li strong {
+  font-weight: 500;
+}
+
+p em, li em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ── LISTS ── */
+ul, ol {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+li {
+  font-weight: 300;
+}
+
+/* ── NAVIGATION ── */
+nav a,
+.nav-link,
+.navbar a,
+.navmenu a {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+/* ── SECTION LABELS ── */
+.sec-lbl,
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Section main heading (e.g. "Beyond the desk.", "Chapters worth reading.") */
+.sec-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 64px;
+  letter-spacing: -0.8px;
+  line-height: 1.12;
+}
+
+/* ── SECTION SUBTITLES / TAGLINES ── */
+.sec-sub,
+.section-subtitle,
+.tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* ── TAGS & LABELS ── */
+.tag,
+.badge,
+.filter-tag,
+.skill-tag,
+.category-tag,
+.project-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
+/* ── META INFO ── */
+.meta,
+.date,
+.location,
+.org-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+/* ── BUTTONS ── */
+button,
+.btn,
+a.btn,
+input[type="submit"] {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+/* ── LINKS (keep theme colors) ── */
+a {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+/* ── PROJECT TITLES (match Skills “Languages” font, larger size) ── */
+.portfolio-item h4,
+.portfolio .portfolio-item .portfolio-info h4,
+.project-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
+}
+
+/* ── EXPERIENCE ROLE TITLES (match Skills “Languages” font, larger size) ── */
+.experience-role,
+.job-title,
+#experience .experience-content h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
+}
+
+/* ── EDUCATION DEGREE TITLES (same font as Experience/Projects/Highlights, larger) ── */
+.education-degree,
+.degree-title,
+#education .education-degree {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
+}
+
+/* ── FOOTER ── */
+footer,
+footer p,
+footer a,
+.footer,
+.footer p,
+.footer a {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+}
 
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
@@ -65,7 +287,6 @@
 body {
   color: var(--default-color);
   background-color: var(--background-color);
-  font-family: var(--default-font);
 }
 
 a {
@@ -79,14 +300,8 @@ a:hover {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--heading-color);
-  font-family: var(--heading-font);
 }
 
 /*--------------------------------------------------------------
@@ -146,7 +361,7 @@ h6 {
   padding-left: 6px;
   display: inline-block;
   transition: 0.3s;
-  font-size: 16px;
+  font-size: 28px;
 }
 
 .header .header-social-links a:hover {
@@ -155,6 +370,7 @@ h6 {
 
 .header .header-social-links a i {
   line-height: 0px;
+  font-size: 28px;
 }
 
 @media (max-width: 1200px) {
@@ -204,10 +420,7 @@ h6 {
   .navmenu a,
   .navmenu a:focus {
     color: #1a3040;
-    font-size: 15px;
     padding: 0 2px;
-    font-family: var(--nav-font);
-    font-weight: 400;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -262,7 +475,7 @@ h6 {
 
   .navmenu .dropdown ul a {
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 13px;
     text-transform: none;
     color: var(--nav-dropdown-color);
   }
@@ -333,9 +546,6 @@ h6 {
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
     padding: 10px 20px;
-    font-family: var(--nav-font);
-    font-size: 17px;
-    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -428,7 +638,6 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  font-size: 14px;
   padding: 18px 0 !important;
   position: relative;
   width: 100vw !important;
@@ -616,18 +825,23 @@ h6 {
 }
 
 .page-title h1 {
-  font-size: 24px;
-  font-weight: 400;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  line-height: 1.12;
 }
 
 .page-title .breadcrumbs ol {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 14px;
-  font-weight: 400;
 }
 
 .page-title .breadcrumbs ol li+li {
@@ -648,7 +862,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 72px ;
+  padding: 72px 24px;
   scroll-margin-top: 100px;
   overflow: clip;
 }
@@ -657,6 +871,20 @@ section,
 section + section,
 .section + .section {
   padding-top: 28px;
+}
+
+/* Reduced horizontal margins site-wide */
+.section .container,
+section .container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (max-width: 767.98px) {
+  .section .container,
+  section .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -678,8 +906,6 @@ section + section,
 }
 
 .section-title h2 {
-  font-size: 30px;
-  font-weight: 700;
   padding-bottom: 10px;
   position: relative;
 }
@@ -706,9 +932,25 @@ section + section,
   padding-bottom: 28px;
 }
 
+/* Portfolio: minimal horizontal padding so filter pills fit on one line */
+#portfolio.section {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+#portfolio .container {
+  padding-left: 8px;
+  padding-right: 8px;
+  max-width: 100%;
+}
+/* Filter row: single line; scroll horizontally if buttons don't fit so none are cut off */
+#portfolio .isotope-layout {
+  min-width: 0;
+  overflow: visible;
+}
+
 /*--------------------------------------------------------------
 # Section Headers — Priyal Maniar (sec-lbl, sec-h2, sec-rule, sec-sub)
-# Use these classes for consistent header + subtitle styling site-wide.
+# Typography from Typography System above; here: colors + layout only.
 --------------------------------------------------------------*/
 :root {
   --tide: #5aa0a0;
@@ -719,21 +961,12 @@ section + section,
 }
 
 .sec-lbl {
-  font-size: 14px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
   color: var(--tide);
-  font-weight: 500;
   margin-bottom: 10px;
 }
 
 .sec-h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
-  letter-spacing: -0.8px;
   color: var(--ink);
-  line-height: 1.12;
-  font-weight: 600;
   margin-bottom: 10px;
 }
 
@@ -752,10 +985,7 @@ section + section,
 }
 
 .sec-sub {
-  font-size: 19px;
   color: var(--rip);
-  font-weight: 300;
-  line-height: 1.75;
   max-width: 560px;
 }
 
@@ -780,13 +1010,13 @@ section + section,
 
 @media (max-width: 768px) {
   .sec-lbl {
-    font-size: 12px;
+    font-size: 14px;
   }
   .sec-h2 {
-    font-size: 40px;
+    font-size: 48px;
   }
   .sec-sub {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 
@@ -817,22 +1047,21 @@ section + section,
 .hero h2 {
   margin: 0;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .hero p {
   margin: 10px 0 0 0;
-  font-size: 24px;
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 300;
   color: var(--heading-color);
 }
 
 .hero .btn-get-started {
   color: var(--contrast-color);
   background: var(--accent-color);
-  font-family: var(--heading-font);
   text-transform: uppercase;
-  font-weight: 600;
-  font-size: 12px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 20px;
@@ -845,9 +1074,13 @@ section + section,
   background: color-mix(in srgb, var(--accent-color) 90%, white 20%);
 }
 
-/* Hero title: responsive font sizes */
+/* Hero title: matches h1/h2 from typography */
 .hero-title {
-  font-size: 60px;
+  font-size: 48px;
+  font-weight: 600;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: -0.8px;
+  line-height: 1.12;
   text-shadow: 2px 2px 4px rgba(229, 233, 236, 0.557);
 }
 
@@ -869,9 +1102,6 @@ section + section,
 .portfolio-info .btn-get-started {
   color: var(--contrast-color);
   background: var(--accent-color);
-  font-family: var(--heading-font);
-  font-weight: 400;
-  font-size: 12px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 15px;
@@ -881,7 +1111,6 @@ section + section,
   margin-right:40px;
   margin-left:40px;
   align-items: center
-  
 }
 
 .clickable-heading {
@@ -923,10 +1152,7 @@ section + section,
   --rip: #8a9eaa;
   --lt: #b8ccd4;
   --wh: #fff;
-  font-family: 'DM Sans', sans-serif !important;
   color: var(--ink) !important;
-  font-size: 14px !important;
-  line-height: 1.7 !important;
   padding: 0 !important;
   overflow: visible !important;
   background-color: transparent !important;
@@ -938,27 +1164,12 @@ section + section,
   padding: 80px 24px 72px;
 }
 
-/* Heading */
+/* Heading — typography from global; here only spacing/color overrides */
 #about .sec-lbl {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--tide);
-  font-weight: 500;
   margin-bottom: 8px;
 }
 #about .sec-h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px;
-  letter-spacing: -0.8px;
-  color: var(--ink);
-  line-height: 1.12;
-  font-weight: 600;
   margin-bottom: 6px;
-}
-#about .sec-h2 em {
-  color: var(--tide);
-  font-style: italic;
 }
 #about .sec-rule {
   width: 48px;
@@ -967,10 +1178,6 @@ section + section,
   margin-bottom: 14px;
 }
 #about .sec-sub {
-  font-size: 19px;
-  color: var(--rip);
-  font-weight: 300;
-  line-height: 1.75;
   max-width: 100%;
   margin-bottom: 48px;
 }
@@ -996,15 +1203,17 @@ section + section,
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 #about .d-name {
+  font-family: 'DM Sans', sans-serif;
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   line-height: 1.5;
 }
 #about .d-count {
-  font-size: 12px;
-  font-weight: 300;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
   margin-top: 8px;
   opacity: 0.55;
 }
@@ -1021,10 +1230,10 @@ section + section,
 }
 #about .highlights-head h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 600;
+  letter-spacing: -0.3px;
   color: var(--ink);
-  letter-spacing: -0.4px;
   margin-bottom: 6px;
 }
 #about .highlights-head h3 em {
@@ -1032,10 +1241,7 @@ section + section,
   font-style: italic;
 }
 #about .highlights-head p {
-  font-size: 17px;
   color: var(--rip);
-  font-weight: 300;
-  line-height: 1.6;
 }
 
 /* Carousel outer + Swiper */
@@ -1076,30 +1282,34 @@ section + section,
   height: 4px;
 }
 #about .hc-num {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   color: var(--lt);
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   margin-bottom: 16px;
 }
+/* Highlight card titles: match Skills “Languages” font, larger size */
 #about .hc-title {
-  font-size: 17px;
-  font-weight: 500;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
   color: var(--ink);
   margin-bottom: 10px;
-  letter-spacing: -0.1px;
-  line-height: 1.35;
 }
 #about .hc-body {
-  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
   color: var(--cur);
-  line-height: 1.75;
+  line-height: 1.9;
   font-weight: 300;
   flex: 1;
 }
 #about .hc-tag {
-  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
   font-weight: 500;
   padding: 5px 12px;
   border-radius: 4px;
@@ -1250,11 +1460,12 @@ section + section,
 }
 
 .stats .stats-item p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   padding: 0;
   margin: 0;
-  font-family: var(--heading-font);
-  font-weight: 500;
 }
 
 /*--------------------------------------------------------------
@@ -1281,13 +1492,17 @@ section + section,
 }
 
 .testimonials .testimonial-item h3 {
-  font-size: 20px;
-  font-weight: bold;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
   margin: 10px 0 5px 0;
 }
 
 .testimonials .testimonial-item h4 {
-  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   margin: 0 0 15px 0;
 }
@@ -1323,6 +1538,10 @@ section + section,
 }
 
 .testimonials .testimonial-item p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
   font-style: italic;
   margin: 0 auto 15px auto;
 }
@@ -1356,14 +1575,30 @@ section + section,
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
-/* Education section: card layout with avatar, dates right-aligned */
+/* Education section: card layout with avatar, dates right-aligned, accent bar like experience */
 #education .education-card {
+  display: flex;
+  align-items: stretch;
   background: #ffffff;
   border-radius: 10px;
-  padding: 1.25rem 1.5rem;
   margin-bottom: 0.75rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+#education .education-card-accent {
+  width: 4px;
+  flex-shrink: 0;
+}
+
+#education .education-card-accent.accent-1 { background: #5ba3c6; }
+#education .education-card-accent.accent-2 { background: #38b2ac; }
+
+#education .education-card-body {
+  flex: 1;
+  min-width: 0;
+  padding: 1.25rem 1.5rem;
 }
 
 #education .education-card-header {
@@ -1410,23 +1645,22 @@ section + section,
 }
 
 #education .education-degree {
-  font-size: 1.25rem;
-  font-weight: 700;
   color: #1a1a1a;
   margin: 0 0 0.2rem 0;
   text-transform: none;
-  letter-spacing: 0;
 }
 
 #education .education-field {
-  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
   font-weight: 400;
   color: #444;
   margin: 0 0 0.15rem 0;
 }
 
 #education .education-school {
-  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
   font-weight: 400;
   color: #555;
   margin: 0;
@@ -1438,23 +1672,27 @@ section + section,
 }
 
 #education .education-dates {
-  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
   font-weight: 400;
+  letter-spacing: 0.3px;
   color: #555;
   margin: 0 0 0.25rem 0;
 }
 
 #education .education-cgpa {
-  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
   font-weight: 500;
   color: #444;
   margin: 0;
 }
 
 #education .education-coursework-heading {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   text-transform: uppercase;
   color: #555;
   margin: 0.5rem 0 0.35rem 0;
@@ -1466,10 +1704,11 @@ section + section,
 
 #education .education-semester-line,
 #education .education-coursework-list {
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
   color: #444;
-  line-height: 1.55;
+  line-height: 1.9;
   margin: 0 0 0.25rem 0;
 }
 
@@ -1492,8 +1731,6 @@ section + section,
 
 .resume .resume-title {
   color: var(--heading-color);
-  font-size: 26px;
-  font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -1506,19 +1743,23 @@ section + section,
 }
 
 .resume .resume-item h4 {
-  line-height: 18px;
-  font-size: 18px;
-  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  line-height: 1.5;
   text-transform: uppercase;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 10px;
 }
 
 .resume .resume-item h5 {
-  font-size: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
   padding: 5px 15px;
   display: inline-block;
-  font-weight: 600;
   margin-bottom: 10px;
 }
 
@@ -1588,14 +1829,18 @@ section + section,
 }
 
 .services .service-item h3 {
-  font-weight: 700;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
   margin: 10px 0 15px 0;
-  font-size: 22px;
 }
 
 .services .service-item p {
-  line-height: 24px;
-  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
   margin-bottom: 0;
 }
 
@@ -1678,25 +1923,56 @@ section + section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
-.portfolio .portfolio-filters {
-  padding: 0;
-  margin: 0 auto 20px auto;
-  list-style: none;
-  text-align: center;
+/* Filter row scroll wrapper: contains overflow so buttons are never cut off */
+.portfolio .portfolio-filters-scroll {
+  overflow-x: auto;
+  overflow-y: visible;
+  width: 100%;
+  margin: 0 0 48px 0;
+  padding: 0 4px 12px 0;
+  -webkit-overflow-scrolling: touch;
 }
 
-.portfolio .portfolio-filters li {
-  cursor: pointer;
+/* When wrapper is present, ul grows to content and is never clipped */
+.portfolio .portfolio-filters-scroll .portfolio-filters,
+.portfolio .portfolio-filters-scroll ul.isotope-filters {
+  width: max-content;
+  min-width: 100%;
   display: inline-block;
-  padding: 8px 20px 10px 20px;
-  margin: 0;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1;
-  margin-bottom: 5px;
+  overflow: visible;
+}
+
+/* Single line, no scroll; smaller font so all filters fit */
+.portfolio .portfolio-filters,
+.portfolio ul.portfolio-filters,
+.portfolio ul.isotope-filters {
+  display: block !important;
+  white-space: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 0 6px 0 !important;
+  margin: 0 0 48px 0 !important;
+  list-style: none !important;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+.portfolio .portfolio-filters li,
+.portfolio ul.portfolio-filters li {
+  cursor: pointer;
+  display: inline-block !important;
+  white-space: nowrap !important;
+  padding: 6px 14px 6px 14px;
+  margin: 0 4px 0 0;
+  font-size: 11px;
+  line-height: 1.2;
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
-  font-family: var(--heading-font);
+  box-sizing: border-box;
+  vertical-align: middle;
+  overflow: visible;
 }
 
 /* Unselected filters: button shadow so they look clickable */
@@ -1725,10 +2001,16 @@ section + section,
   margin-right: 0;
 }
 
+.portfolio .portfolio-filters li .filter-count {
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+
 @media (max-width: 575px) {
   .portfolio .portfolio-filters li {
-    font-size: 14px;
-    margin: 0 0 10px 0;
+    font-size: 10px;
+    margin: 0;
+    padding: 3px 5px 4px 5px;
   }
 }
 
@@ -1758,14 +2040,11 @@ section + section,
 }
 
 .portfolio .portfolio-item .portfolio-info h4 {
-  font-size: 18px;
-  font-weight: 600;
   padding-right: 50px;
 }
 
 .portfolio .portfolio-item .portfolio-info p {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 14px;
   margin-bottom: 0;
   padding-right: 50px;
 }
@@ -1897,8 +2176,10 @@ section + section,
 }
 
 .project-flip-front .project-card-title {
-  font-size: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
   font-weight: 600;
+  letter-spacing: -0.2px;
   color: var(--heading-color);
   margin-bottom: 0.1em;
   line-height: 1.35;
@@ -1911,7 +2192,10 @@ section + section,
 }
 
 .project-flip-front .project-card-subtitle {
-  font-size: 0.875rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 0.75rem;
   margin-top: 0;
@@ -1930,19 +2214,25 @@ section + section,
   margin-bottom: 0;
 }
 
-/* Org/group name: same font as title, not bold (for extracurriculars) */
+/* Org/group name: card-level (h4 style) */
 .project-card-org {
-  font-size: 1rem;
-  font-weight: 400;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
   color: var(--heading-color);
-  font-family: var(--heading-font);
   margin-bottom: 0.25rem;
   margin-top: 0;
-  line-height: 1.35;
+  line-height: 1.5;
 }
 
 /* Extracurricular cards: title doesn’t grow so Details stays at bottom */
 #extracurriculars .project-flip-front .project-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
   flex: none;
   -webkit-line-clamp: unset;
   display: block;
@@ -1950,6 +2240,11 @@ section + section,
 }
 #extracurriculars .project-flip-front .project-card-org {
   margin-top: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
 }
 #extracurriculars .project-flip-front .project-card-subtitle {
   margin-bottom: 0;
@@ -1964,6 +2259,16 @@ section + section,
   margin-top: auto;
 }
 
+/* Compact cards in extracurriculars (no images; room for image below) — override theme */
+#extracurriculars .project-flip-card,
+#extracurriculars .project-flip-inner,
+#extracurriculars .project-flip-front,
+#extracurriculars .project-flip-back {
+  height: 180px !important;
+  min-height: 180px !important;
+  max-height: 180px !important;
+}
+
 /* Project tags (above Details button): rounded, light border, subtle shadow */
 .project-card-tags {
   display: flex;
@@ -1974,10 +2279,12 @@ section + section,
 }
 
 .project-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   display: inline-block;
   padding: 4px 12px;
-  font-size: 0.8rem;
-  font-weight: 500;
   color: #555;
   background: #f8f9fa;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -2081,9 +2388,11 @@ section + section,
 }
 
 .project-flip-back .project-description {
-  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
   color: var(--default-color);
-  line-height: 1.5;
   margin-bottom: 1rem;
   padding-top: 0.5rem;
 }
@@ -2107,6 +2416,14 @@ section + section,
   .project-flip-front,
   .project-flip-back {
     height: 400px;
+  }
+  #extracurriculars .project-flip-card,
+  #extracurriculars .project-flip-inner,
+  #extracurriculars .project-flip-front,
+  #extracurriculars .project-flip-back {
+    height: 180px !important;
+    min-height: 180px !important;
+    max-height: 180px !important;
   }
   .project-flip-front .project-card-body {
     min-height: 140px;
@@ -2143,17 +2460,22 @@ section + section,
 }
 
 .portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 .portfolio-details .portfolio-info ul {
+  font-family: 'DM Sans', sans-serif;
   list-style: none;
   padding: 0;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
 }
 
 .portfolio-details .portfolio-info ul li+li {
@@ -2165,12 +2487,19 @@ section + section,
 }
 
 .portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  line-height: 1.12;
   margin-bottom: 20px;
 }
 
 .portfolio-details .portfolio-description p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
   padding: 0;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
@@ -2213,16 +2542,21 @@ section + section,
 }
 
 .contact .info-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
   padding: 0;
-  font-size: 18px;
-  font-weight: 700;
   margin-bottom: 1px;
 }
 
 .contact .info-item p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
   padding: 0;
   margin-bottom: 0;
-  font-size: 14px;
 }
 
 .contact .info-item:hover i {
@@ -2245,16 +2579,21 @@ section + section,
 }
 
 .contact .info-item-map h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
   padding: 0;
-  font-size: 18px;
-  font-weight: 700;
   margin-bottom: 1px;
 }
 
 .contact .info-item-map p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
   padding: 0;
   margin-bottom: 0;
-  font-size: 14px;
 }
 
 .contact .info-item-map:hover i {
@@ -2268,7 +2607,7 @@ section + section,
 }
 
 .contact-centered .contact-label {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2277,7 +2616,7 @@ section + section,
 }
 
 .contact-centered .contact-heading {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
   font-weight: 700;
   color: var(--heading-color);
   margin: 0 0 1rem 0;
@@ -2286,7 +2625,7 @@ section + section,
 .contact-centered .contact-intro {
   max-width: 520px;
   margin: 0 auto 2rem;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
   color: var(--default-color);
 }
@@ -2315,7 +2654,7 @@ section + section,
 }
 
 .contact-centered .contact-location {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin: 0 0 2.5rem 0;
 }
@@ -2355,18 +2694,26 @@ section + section,
 }
 
 .contact-card-title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
   margin-bottom: 0.25rem;
 }
 
 .contact-card-handle {
-  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
   color: color-mix(in srgb, var(--default-color), transparent 15%);
 }
 
 .contact-availability {
-  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
   color: var(--default-color);
   margin: 0;
   display: flex;
@@ -2425,8 +2772,11 @@ section + section,
 }
 
 #skills .skill-card-title {
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
   color: #1a1a1a;
   margin: 0 0 0.85rem 0;
 }
@@ -2438,10 +2788,12 @@ section + section,
 }
 
 #skills .skill-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   display: inline-block;
   padding: 0.35rem 0.75rem;
-  font-size: 0.85rem;
-  font-weight: 500;
   color: #555;
   background: #e8e8e8;
   border-radius: 999px;
@@ -2460,7 +2812,7 @@ section + section,
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.35s ease;
   color: inherit;
-  min-height: 88px;
+  min-height: 110px;
   cursor: pointer;
 }
 
@@ -2475,8 +2827,8 @@ section + section,
 #experience .experience-card-row {
   display: flex;
   align-items: stretch;
-  min-height: 88px;
-  padding-right: 12px;
+  min-height: 110px;
+  padding-right: 14px;
 }
 
 #experience .experience-card-description {
@@ -2488,7 +2840,7 @@ section + section,
 }
 
 #experience .experience-card.expanded .experience-card-description {
-  max-height: 400px;
+  max-height: 480px;
 }
 
 /* Expand only on click (arrow or card); no hover */
@@ -2519,17 +2871,21 @@ section + section,
 }
 
 #experience .experience-card-description-inner {
-  padding: 1rem 1.25rem 1.25rem;
-  padding-left: calc(12px + 4px + 64px + 12px);
-  font-size: 0.9rem;
-  line-height: 1.55;
+  font-family: 'DM Sans', sans-serif;
+  padding: 1.25rem 1.5rem 1.5rem;
+  padding-left: calc(14px + 4px + 76px + 14px);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.9;
   color: #1a1a1a;
 }
 
 #experience .experience-card-description-inner .experience-desc-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
   font-weight: 600;
+  letter-spacing: -0.3px;
   margin: 0 0 0.5rem 0;
-  font-size: 0.95rem;
   color: #1a1a1a;
 }
 
@@ -2588,8 +2944,8 @@ section + section,
 
 #experience .experience-logo-wrap {
   flex-shrink: 0;
-  width: 64px;
-  height: 64px;
+  width: 76px;
+  height: 76px;
   margin: 12px;
   border-radius: 10px;
   overflow: hidden;
@@ -2612,40 +2968,35 @@ section + section,
 #experience .experience-content {
   flex: 1;
   min-width: 0;
-  padding: 14px 12px 14px 0;
+  padding: 18px 14px 18px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 #experience .experience-content h4 {
-  font-size: 1.35rem;
-  font-weight: 700;
   margin: 0 0 4px 0;
   line-height: 1.3;
   color: #1a1a1a;
-  font-family: Georgia, "Times New Roman", serif;
 }
 
 #experience .experience-meta {
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 1.125rem;
   color: #666;
   margin: 0;
   line-height: 1.35;
-  font-family: Georgia, "Times New Roman", serif;
 }
 
 #experience .experience-dates {
   flex-shrink: 0;
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   font-weight: 400;
   color: #4a90b0;
-  padding: 14px 8px 14px 12px;
+  padding: 18px 10px 18px 14px;
   display: flex;
   align-items: center;
   align-self: flex-start;
-  padding-top: 14px;
+  padding-top: 18px;
   font-family: var(--default-font);
 }
 
@@ -2695,11 +3046,13 @@ section + section,
 }
 
 #dynamicText {
-  min-height: 30px; 
+  min-height: 30px;
   display: inline-block;
-  font-size: 27px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500; 
+  font-size: 48px;
+  font-weight: 600;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: -0.8px;
+  line-height: 1.12;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
@@ -2738,21 +3091,23 @@ body {
 
 /* 1. Shrink section padding on small screens */
 @media (max-width:767.98px){
-  section,.section{padding:48px 16px}
+  section,.section{padding:48px 12px}
+  #portfolio.section { padding-left: 10px; padding-right: 10px; }
+  #portfolio .container { padding-left: 8px; padding-right: 8px; }
 }
 
 /* 2. Hero text & button scale-down for mobile */
 @media (max-width: 768px) {
-  #hero h2, .hero h2, .hero-title { font-size: 36px !important; }
-  #hero .btn-get-started, .hero .btn-get-started { font-size: 12px !important; padding: 10px 18px; }
-  #dynamicText { font-size: 22px; }
+  #hero h2, .hero h2, .hero-title { font-size: 40px !important; }
+  #hero .btn-get-started, .hero .btn-get-started { font-size: 14px !important; padding: 10px 18px; }
+  #dynamicText { font-size: 40px; }
   .hero .container, .hero-container { padding-left: 15px; padding-right: 15px; }
   .hero { padding: 40px 0; min-height: auto; }
 }
 @media (max-width: 576px) {
-  #hero h2, .hero h2, .hero-title { font-size: 28px !important; }
-  #hero .btn-get-started, .hero .btn-get-started { font-size: 11px !important; padding: 8px 16px; }
-  #dynamicText { font-size: 18px; }
+  #hero h2, .hero h2, .hero-title { font-size: 32px !important; }
+  #hero .btn-get-started, .hero .btn-get-started { font-size: 13px !important; padding: 8px 16px; }
+  #dynamicText { font-size: 32px; }
 }
 
 /* 3. Make every image and card fluid */
@@ -2864,21 +3219,16 @@ img, .card-img-top { max-width: 100%; height: auto !important; }
   }
 }
 
-/* 7. Portfolio filter pills: wrap on small screens */
+/* 7. Portfolio filter pills: single line (inline-block), scroll if needed */
 @media (max-width: 767px) {
-  .portfolio-filters {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
+  .portfolio .portfolio-filters li,
   .portfolio-filters li {
-    margin: 2px !important;
+    margin: 0 4px 0 0 !important;
   }
 }
 
 /* 8. Centre & down-size footer text on tiny screens */
 @media (max-width: 600px) {
   .footer .container { text-align: center; }
-  .footer .credits { font-size: 12px; }
+  .footer .credits { font-size: 13px; }
 }

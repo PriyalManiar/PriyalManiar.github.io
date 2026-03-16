@@ -16,7 +16,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=DM+Sans:wght@300;400;500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -101,7 +101,6 @@
       background: rgba(255,255,255,.82);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(178,223,219,.5);
     }
     /* Force education & skills cards to match experience (white) – inlined so it applies when base href loads CSS from GitHub */
     #education .education-card {
@@ -244,7 +243,7 @@
     #about .domain-card.dg,
     #about .domain-card.db { background: #ffffff !important; border-color: #d0eaea !important; color: #3a7878 !important; }
     #about .highlights-head { margin-bottom: 36px; }
-    #about .highlights-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--ink); letter-spacing: -0.4px; margin-bottom: 6px; }
+    #about .highlights-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--ink); letter-spacing: -0.3px; margin-bottom: 6px; }
     #about .highlights-head h3 em { color: var(--tide); font-style: italic; }
     #about .highlights-head p { font-size: 17px; color: var(--rip); font-weight: 300; line-height: 1.6; }
     #about .carousel-outer { position: relative; }
@@ -343,6 +342,89 @@
     #footer .credits {
       margin-top: 6px !important;
     }
+  </style>
+
+  <!-- Typography: force main.css typography to win over theme inlined styles (index only) -->
+  <style id="typography-overrides">
+    body.index-page,
+    body.index-page .main { font-family: 'DM Sans', sans-serif !important; font-size: 17px !important; font-weight: 400 !important; line-height: 1.7 !important; }
+    body.index-page h1, body.index-page h2 { font-family: 'Cormorant Garamond', serif !important; font-size: 48px !important; font-weight: 600 !important; letter-spacing: -0.8px !important; line-height: 1.12 !important; }
+    body.index-page h3 { font-family: 'Cormorant Garamond', serif !important; font-size: 24px !important; font-weight: 600 !important; letter-spacing: -0.3px !important; }
+    body.index-page h4 { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+    /* Experience, Education degree, highlights: same font as Skills “Languages”, larger (override theme) */
+    body.index-page #experience .experience-content h4 { font-family: 'Cormorant Garamond', serif !important; font-size: 24px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
+    body.index-page #education .education-degree { font-family: 'Cormorant Garamond', serif !important; font-size: 25px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
+    body.index-page #about .hc-title { font-family: 'Cormorant Garamond', serif !important; font-size: 22px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
+    body.index-page p, body.index-page li { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 300 !important; line-height: 1.9 !important; }
+    body.index-page .sec-lbl { font-family: 'DM Sans', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; letter-spacing: 3px !important; text-transform: uppercase !important; }
+    body.index-page .sec-h2, body.index-page #about .sec-h2 { font-family: 'Cormorant Garamond', serif !important; font-size: 64px !important; font-weight: 600 !important; letter-spacing: -0.8px !important; line-height: 1.12 !important; }
+    body.index-page .sec-sub, body.index-page #about .sec-sub { font-family: 'DM Sans', sans-serif !important; font-size: 18px !important; font-weight: 300 !important; line-height: 1.8 !important; }
+    body.index-page #about .d-name { font-family: 'DM Sans', sans-serif !important; font-size: 12px !important; font-weight: 500 !important; letter-spacing: 3px !important; }
+    body.index-page #about .d-count { font-family: 'DM Sans', sans-serif !important; font-size: 13px !important; font-weight: 400 !important; }
+    body.index-page #about .hc-num { font-family: 'DM Sans', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; }
+    body.index-page #about .hc-body { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 300 !important; line-height: 1.9 !important; }
+    body.index-page #about .hc-tag { font-family: 'DM Sans', sans-serif !important; font-size: 12px !important; font-weight: 500 !important; }
+    body.index-page #about .highlights-head h3 { font-family: 'Cormorant Garamond', serif !important; font-size: 30px !important; font-weight: 600 !important; letter-spacing: -0.3px !important; }
+    body.index-page #about .highlights-head p { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 300 !important; line-height: 1.9 !important; }
+    body.index-page #skills .skill-card-title { font-family: 'Cormorant Garamond', serif !important; font-size: 20px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
+    body.index-page #skills .skill-tag { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+    body.index-page .contact-card-title { font-family: 'Cormorant Garamond', serif !important; font-size: 20px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
+    body.index-page .contact-card-handle { font-family: 'DM Sans', sans-serif !important; font-size: 13px !important; font-weight: 400 !important; }
+    body.index-page .contact-label { font-family: 'DM Sans', sans-serif !important; font-size: 12px !important; font-weight: 500 !important; letter-spacing: 0.2em !important; }
+    body.index-page .contact-heading { font-family: 'Cormorant Garamond', serif !important; font-weight: 700 !important; }
+    body.index-page .contact-intro { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 300 !important; line-height: 1.7 !important; }
+    body.index-page .project-flip-front .project-card-title { font-family: 'Cormorant Garamond', serif !important; font-size: 22px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
+    body.index-page .project-flip-front .project-card-subtitle { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 300 !important; line-height: 1.9 !important; }
+    body.index-page .project-card-org { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+    body.index-page #extracurriculars .project-card-org { font-family: 'Cormorant Garamond', serif !important; font-size: 18px !important; font-weight: 600 !important; letter-spacing: -0.2px !important; line-height: 1.35 !important; }
+    body.index-page .project-tag { font-family: 'DM Sans', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+    /* Override theme: compact extracurricular cards (room for image below) */
+    body.index-page #extracurriculars .project-flip-card,
+    body.index-page #extracurriculars .project-flip-inner,
+    body.index-page #extracurriculars .project-flip-front,
+    body.index-page #extracurriculars .project-flip-back { height: 180px !important; min-height: 180px !important; max-height: 180px !important; }
+    body.index-page .navmenu a { font-family: 'DM Sans', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; letter-spacing: 1.1px !important; text-transform: uppercase !important; }
+    body.index-page #footer, body.index-page #footer p, body.index-page #footer a { font-family: 'DM Sans', sans-serif !important; font-size: 13px !important; font-weight: 400 !important; }
+    @media (max-width: 768px) {
+      body.index-page .sec-h2, body.index-page #about .sec-h2 { font-size: 48px !important; }
+      body.index-page .sec-lbl { font-size: 14px !important; }
+      body.index-page .sec-sub, body.index-page #about .sec-sub { font-size: 18px !important; }
+    }
+  </style>
+
+  <!-- Project filters: single line, scroll wrapper so buttons are never cut off -->
+  <style id="portfolio-filters-oneline">
+    body.index-page #portfolio .portfolio-filters-scroll {
+      overflow-x: auto !important;
+      overflow-y: visible !important;
+      width: 100% !important;
+      margin: 0 0 48px 0 !important;
+      padding: 0 4px 12px 0 !important;
+      -webkit-overflow-scrolling: touch;
+    }
+    body.index-page #portfolio .portfolio-filters,
+    body.index-page #portfolio ul.isotope-filters {
+      display: inline-block !important;
+      white-space: nowrap !important;
+      width: max-content !important;
+      min-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      list-style: none !important;
+      overflow: visible !important;
+    }
+    body.index-page #portfolio .portfolio-filters li,
+    body.index-page #portfolio ul.isotope-filters li {
+      display: inline-block !important;
+      white-space: nowrap !important;
+      flex: none !important;
+      margin: 0 4px 0 0 !important;
+      vertical-align: middle;
+      font-size: 0.9rem !important;
+      overflow: visible !important;
+    }
+    body.index-page #portfolio .portfolio-filters li:first-child,
+    body.index-page #portfolio ul.isotope-filters li:first-child { margin-left: 0 !important; }
   </style>
 
   <!-- Sticky header + side dots visibility (ensure they work on index) -->
@@ -596,6 +678,24 @@
                   <span class="hc-tag" style="background:var(--foam);color:#3a7878">Mentorship · Leadership</span>
                 </div>
               </div>
+              <div class="swiper-slide">
+                <div class="hcard">
+                  <div class="hc-bar" style="background:var(--tide)"></div>
+                  <div class="hc-num">06</div>
+                  <div class="hc-title">Highlight placeholder</div>
+                  <div class="hc-body">Add a short description for this highlight. Replace with your own achievement or milestone.</div>
+                  <span class="hc-tag" style="background:var(--foam);color:#3a7878">Category</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="hcard">
+                  <div class="hc-bar" style="background:#4870a8"></div>
+                  <div class="hc-num">07</div>
+                  <div class="hc-title">Highlight placeholder</div>
+                  <div class="hc-body">Add a short description for this highlight. Replace with your own achievement or milestone.</div>
+                  <span class="hc-tag" style="background:var(--pb);color:#4870a8">Category</span>
+                </div>
+              </div>
             </div>
           </div>
           <div class="carousel-nav">
@@ -712,40 +812,46 @@
         <div class="row gy-3">
           <div class="col-12" data-aos="fade-up" data-aos-delay="100">
             <div class="education-card">
-              <div class="education-card-header">
-                <div class="education-avatar education-avatar--cover"><img src="assets/img/education/illinois-logo.png" alt="University of Illinois"></div>
-                <div class="education-header-text">
-                  <h4 class="education-degree">Master of Science</h4>
-                  <p class="education-field">Information Management</p>
-                  <p class="education-school">University of Illinois Urbana-Champaign · IL, USA</p>
+              <div class="education-card-accent accent-1"></div>
+              <div class="education-card-body">
+                <div class="education-card-header">
+                  <div class="education-avatar education-avatar--cover"><img src="assets/img/education/illinois-logo.png" alt="University of Illinois"></div>
+                  <div class="education-header-text">
+                    <h4 class="education-degree">Master of Science</h4>
+                    <p class="education-field">Information Management</p>
+                    <p class="education-school">University of Illinois Urbana-Champaign · IL, USA</p>
+                  </div>
+                  <div class="education-header-right">
+                    <p class="education-dates">Aug 2024 - May 2026</p>
+                    <p class="education-cgpa">CGPA 4.0 / 4.0</p>
+                  </div>
                 </div>
-                <div class="education-header-right">
-                  <p class="education-dates">Aug 2024 - May 2026</p>
-                  <p class="education-cgpa">CGPA 4.0 / 4.0</p>
-                </div>
+                <p class="education-coursework-heading">COURSEWORK</p>
+                <p class="education-semester-line"><strong>Fall 2025</strong> · IS 507 Data, Statistical Models &amp; Information · IS 515 Information Modelling · IS 525 Data Warehousing &amp; Business Intelligence</p>
+                <p class="education-semester-line"><strong>Spring 2026</strong> · IS 504 Sociotechnical Information Systems · IS 557 Applied Machine Learning · IS 597 Programming &amp; Quality in Analytics</p>
               </div>
-              <p class="education-coursework-heading">COURSEWORK</p>
-              <p class="education-semester-line"><strong>Fall 2025</strong> · IS 507 Data, Statistical Models &amp; Information · IS 515 Information Modelling · IS 525 Data Warehousing &amp; Business Intelligence</p>
-              <p class="education-semester-line"><strong>Spring 2026</strong> · IS 504 Sociotechnical Information Systems · IS 557 Applied Machine Learning · IS 597 Programming &amp; Quality in Analytics</p>
             </div>
           </div>
           <div class="col-12" data-aos="fade-up" data-aos-delay="200">
             <div class="education-card">
-              <div class="education-card-header">
-                <div class="education-avatar"><img src="assets/img/education/nmims-logo.png" alt="NMIMS"></div>
-                <div class="education-header-text">
-                  <h4 class="education-degree">Bachelor of Technology</h4>
-                  <p class="education-field">Computer Science &amp; Business Systems</p>
-                  <p class="education-school">Mukesh Patel School of Technology Management &amp; Engineering · Mumbai, India</p>
+              <div class="education-card-accent accent-2"></div>
+              <div class="education-card-body">
+                <div class="education-card-header">
+                  <div class="education-avatar"><img src="assets/img/education/nmims-logo.png" alt="NMIMS"></div>
+                  <div class="education-header-text">
+                    <h4 class="education-degree">Bachelor of Technology</h4>
+                    <p class="education-field">Computer Science &amp; Business Systems</p>
+                    <p class="education-school">Mukesh Patel School of Technology Management &amp; Engineering · Mumbai, India</p>
+                  </div>
+                  <div class="education-header-right">
+                    <p class="education-dates">Aug 2020 - May 2024</p>
+                  </div>
                 </div>
-                <div class="education-header-right">
-                  <p class="education-dates">Aug 2020 - May 2024</p>
-                </div>
+                <p class="education-coursework-heading">TECHNICAL COURSEWORK</p>
+                <p class="education-coursework-list">Software Engineering, Database Management Systems, Design &amp; Analysis of Algorithms, Computational Statistics, Operations Research, Information Security, Artificial Intelligence, Machine Learning, Deep Learning, Data Mining &amp; Analytics, Cognitive Science &amp; Analytics, Text &amp; Media Analytics</p>
+                <p class="education-coursework-heading">BUSINESS COURSEWORK</p>
+                <p class="education-coursework-list">Business Communication &amp; Value Science, Business Strategy, Fundamentals of Management, Financial Management, Marketing Management, IT Project Management, Industrial Psychology</p>
               </div>
-              <p class="education-coursework-heading">TECHNICAL COURSEWORK</p>
-              <p class="education-coursework-list">Software Engineering, Database Management Systems, Design &amp; Analysis of Algorithms, Computational Statistics, Operations Research, Information Security, Artificial Intelligence, Machine Learning, Deep Learning, Data Mining &amp; Analytics, Cognitive Science &amp; Analytics, Text &amp; Media Analytics</p>
-              <p class="education-coursework-heading">BUSINESS COURSEWORK</p>
-              <p class="education-coursework-list">Business Communication &amp; Value Science, Business Strategy, Fundamentals of Management, Financial Management, Marketing Management, IT Project Management, Industrial Psychology</p>
             </div>
           </div>
         </div>
@@ -983,7 +1089,8 @@
       </div>
       <div class="container">
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+          <div class="portfolio-filters-scroll" data-aos="fade-up" data-aos-delay="100">
+          <ul class="portfolio-filters isotope-filters">
             <li data-filter="*" data-label="All" class="filter-active">All <span class="filter-count"></span></li>
             <li data-filter=".filter-dashboard" data-label="Dashboards">Dashboards <span class="filter-count"></span></li>
             <li data-filter=".filter-dl-ai" data-label="Deep Learning and AI">Deep Learning and AI <span class="filter-count"></span></li>
@@ -992,6 +1099,7 @@
             <li data-filter=".filter-causal" data-label="Causal Analysis &amp; Simulation">Causal Analysis &amp; Simulation <span class="filter-count"></span></li>
             <li data-filter=".filter-consulting" data-label="Consulting">Consulting <span class="filter-count"></span></li>
           </ul>
+          </div>
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
             <div class="col-lg-3 col-md-6 col-12 portfolio-item isotope-item filter-causal">
               <div class="project-flip-card">
@@ -1346,9 +1454,6 @@
             <div class="project-flip-card">
               <div class="project-flip-inner">
                 <div class="project-flip-front">
-                  <div class="project-card-image-wrap">
-                    <img src="assets/img/extracurriculars/4c.webp" alt="">
-                  </div>
                   <div class="project-card-body">
                     <h4 class="project-card-title">President</h4>
                     <p class="project-card-org">4C</p>
@@ -1372,9 +1477,6 @@
             <div class="project-flip-card">
               <div class="project-flip-inner">
                 <div class="project-flip-front">
-                  <div class="project-card-image-wrap">
-                    <img src="assets/img/extracurriculars/rcba.jpeg" alt="">
-                  </div>
                   <div class="project-card-body">
                     <h4 class="project-card-title">Volunteer</h4>
                     <p class="project-card-org">RCBA</p>
@@ -1399,9 +1501,6 @@
             <div class="project-flip-card">
               <div class="project-flip-inner">
                 <div class="project-flip-front">
-                  <div class="project-card-image-wrap">
-                    <img src="assets/img/extracurriculars/trinity-logo.png" alt="">
-                  </div>
                   <div class="project-card-body">
                     <h4 class="project-card-title">Trinity Music Examination</h4>
                     <p class="project-card-org">Trinity</p>
