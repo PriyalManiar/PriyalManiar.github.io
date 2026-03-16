@@ -1964,9 +1964,9 @@ section .container {
   cursor: pointer;
   display: inline-block !important;
   white-space: nowrap !important;
-  padding: 6px 14px 6px 14px;
+  padding: 7px 16px 7px 16px;
   margin: 0 4px 0 0;
-  font-size: 11px;
+  font-size: 15.5px;
   line-height: 1.2;
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
@@ -2008,7 +2008,7 @@ section .container {
 
 @media (max-width: 575px) {
   .portfolio .portfolio-filters li {
-    font-size: 10px;
+    font-size: 13px;
     margin: 0;
     padding: 3px 5px 4px 5px;
   }
