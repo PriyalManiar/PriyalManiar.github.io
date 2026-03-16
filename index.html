@@ -271,6 +271,221 @@
       #about .sec-h2 { font-size: 40px; }
       #about .sec-sub { font-size: 17px; }
     }
+
+    /* Hero layout – centered two-column intro (photo + text) */
+    body.index-page #hero.hero {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    body.index-page #hero .hero-inner {
+      max-width: 1320px;
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      min-height: calc(100vh - 72px);
+    }
+    body.index-page #hero .hero-photo-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 40px;
+      gap: 20px;
+      background: transparent;
+    }
+    body.index-page #hero .hero-photo-frame {
+      width: 240px;
+      height: 300px;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body.index-page #hero .hero-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    body.index-page #hero .hero-grad-info {
+      font-size: 19px;
+      color: var(--rip, #8a9eaa);
+      text-align: center;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    body.index-page #hero .hero-grad-info strong {
+      color: var(--depth, #253c4a);
+      font-weight: 500;
+      display: block;
+      font-size: 20px;
+    }
+    body.index-page #hero .hero-text-col {
+      padding: 64px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+    body.index-page #hero .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 96px !important;
+      line-height: 1.02;
+      letter-spacing: -1.5px;
+      font-weight: 600;
+      color: var(--depth, #253c4a);
+      font-style: italic;
+      margin-top: 0;
+    }
+    body.index-page #hero .hero-name em {
+      color: var(--tide, #5aa0a0);
+      font-style: italic;
+      display: inline;
+    }
+    body.index-page #hero .hero-name {
+      white-space: nowrap;
+    }
+    body.index-page #hero .hero-typing-row {
+      min-height: 28px;
+    }
+    body.index-page #hero .hero-typing-word {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 37px !important;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--rip, #8a9eaa);
+    }
+    body.index-page #hero .hero-typing-cursor {
+      display: inline-block;
+      width: 1.5px;
+      height: 37px;
+      background: var(--sea, #7bbcbc);
+      margin-left: 2px;
+      vertical-align: baseline;
+      transform: translateY(4px);
+      animation: heroBlink .7s step-end infinite;
+    }
+    @keyframes heroBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    body.index-page #hero .hero-bio {
+      font-size: 20.5px !important;
+      color: var(--cur, #4a6070);
+      font-weight: 300;
+      line-height: 1.9;
+      max-width: none;
+    }
+    body.index-page #hero .hero-meta {
+      font-size: 19px;
+      color: var(--rip, #8a9eaa);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 300;
+      flex-wrap: wrap;
+    }
+    body.index-page #hero .hero-meta-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--glass, #aed8d8);
+    }
+    body.index-page #hero .hero-meta-highlight {
+      color: var(--tide, #5aa0a0);
+      font-weight: 500;
+    }
+    body.index-page #hero .hero-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+    body.index-page #hero .hero-link-btn {
+      padding: 12px 32px;
+      border-radius: 3px;
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: .2px;
+      cursor: pointer;
+      transition: all .18s;
+      text-decoration: none;
+      display: inline-block;
+      background: transparent;
+      color: var(--cur, #4a6070);
+      border: 1px solid var(--mist, #d0eaea);
+    }
+    body.index-page #hero .hero-link-btn:hover {
+      border-color: var(--glass, #aed8d8);
+      color: var(--depth, #253c4a);
+    }
+    body.index-page #hero .hero-about-wrap {
+      margin-top: 12px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    body.index-page #hero .hero-about-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 40px;
+      border-radius: 3px;
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: .3px;
+      cursor: pointer;
+      transition: all .2s;
+      background: var(--foam, #eaf6f6);
+      color: var(--tide, #5aa0a0);
+      border: 1px solid var(--mist, #d0eaea);
+      text-decoration: none;
+    }
+    body.index-page #hero .hero-about-btn:hover {
+      background: var(--mist, #d0eaea);
+      color: var(--depth, #253c4a);
+    }
+    body.index-page #hero .hero-about-icon {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform .2s;
+    }
+    body.index-page #hero .hero-about-btn:hover .hero-about-icon {
+      transform: translateY(3px);
+    }
+    @media (max-width: 992px) {
+      body.index-page #hero .hero-inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      body.index-page #hero .hero-photo-col {
+        padding: 40px 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--mist, #d0eaea);
+      }
+      body.index-page #hero .hero-text-col {
+        padding: 40px 24px;
+      }
+      body.index-page #hero .hero-name {
+        font-size: 72px !important;
+        margin-top: 0;
+        white-space: normal;
+      }
+      body.index-page #hero .hero-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+    }
   </style>
 
   <!-- Section headers — Priyal Maniar (sec-lbl, sec-h2, sec-rule, sec-sub). Inlined so it applies when base href loads CSS from GitHub. -->
@@ -454,7 +669,7 @@
   <!-- Sticky header + side dots visibility (ensure they work on index) -->
   <style id="sticky-and-dots">
     body.index-page {
-      padding-top: 72px;
+      padding-top: 0;
     }
     body.index-page #header {
       position: fixed !important;
@@ -462,6 +677,9 @@
       left: 0 !important;
       right: 0 !important;
       z-index: 9999 !important;
+    }
+    body.index-page .main {
+      margin-top: 72px;
     }
     .side-dots {
       display: none !important;
@@ -579,53 +797,48 @@
   <main class="main">
 
    <!-- Hero Section -->
-   <section id="hero" class="hero section">
-     <div class="container text-center hero-container" data-aos="zoom-out" data-aos-delay="100">
-        <div class="row justify-content-center">
-          <div class="col-12 col-lg-8">
-            <h2 class="hero-title">Priyal Maniar</h2>
-            <p id="dynamicText"></p>
-    
-            <script>
-              const texts = ["Data Analytics.", "Business Intelligence.", "Machine Learning.","Deep Learning."];
-              let index = 0;
-              let charIndex = 0;
-              let dynamicText = document.getElementById("dynamicText");
-    
-              function typeText() {
-                if (charIndex < texts[index].length) {
-                  dynamicText.textContent += texts[index].charAt(charIndex);
-                  charIndex++;
-                  setTimeout(typeText, 100);
-                } else {
-                  setTimeout(removeText, 1000);
-                }
-              }
-    
-              function removeText() {
-                if (charIndex > 0) {
-                  dynamicText.textContent = dynamicText.textContent.slice(0, -1);
-                  charIndex--;
-                  setTimeout(removeText, 50);
-                } else {
-                  index = (index + 1) % texts.length;
-                  setTimeout(typeText, 500);
-                }
-              }
-    
-              window.onload = () => {
-                dynamicText.style.minHeight = "30px"; 
-                dynamicText.style.display = "inline-block";
-                typeText();
-              };
-            </script>
-    
-            <br>
-            <a href="#about" class="btn-get-started" style="color: rgb(9, 45, 62); background-color: #a4d4e7; font-size: 13px">About Me</a>
-          </div>
-        </div>
-      </div>
-    </section>
+   <section id="hero" class="hero section" data-aos="fade-up" data-aos-delay="80">
+     <div class="hero-inner">
+       <div class="hero-photo-col">
+         <div class="hero-photo-frame">
+           <img src="headshot.png" alt="Priyal Maniar" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+         </div>
+         <div class="hero-grad-info">
+           <strong>MS Information Sciences</strong>
+           University of Illinois<br>Urbana-Champaign
+         </div>
+       </div>
+       <div class="hero-text-col">
+         <h1 class="hero-name">Priyal <em>Maniar</em></h1>
+         <div class="hero-typing-row">
+           <span class="hero-typing-word" id="hero-typing-text">building ML pipelines</span><span class="hero-typing-cursor"></span>
+         </div>
+         <p class="hero-bio">
+           Data scientist and researcher passionate about turning messy, real-world data into decisions that matter.
+           I work at the intersection of ML, systems, and human-centred design.
+         </p>
+         <div class="hero-meta">
+           <span>Graduating May 2026</span>
+           <span class="hero-meta-dot"></span>
+           <span class="hero-meta-highlight">Open to full-time roles</span>
+         </div>
+         <div class="hero-links">
+           <a href="https://github.com/PriyalManiar" target="_blank" rel="noopener" class="hero-link-btn">GitHub</a>
+           <a href="https://www.linkedin.com/in/priyal-maniar" target="_blank" rel="noopener" class="hero-link-btn">LinkedIn</a>
+           <a href="#" target="_blank" rel="noopener" class="hero-link-btn">Tableau Portfolio</a>
+           <a href="mailto:priyalm2@illinois.edu" class="hero-link-btn">Coffee chat?</a>
+         </div>
+         <div class="hero-about-wrap">
+           <a href="#about" class="hero-about-btn">
+             About me
+             <svg class="hero-about-icon" viewBox="0 0 24 24" aria-hidden="true">
+               <polyline points="6 9 12 15 18 9" />
+             </svg>
+           </a>
+         </div>
+       </div>
+     </div>
+   </section>
 
     <!-- About Section (reference: domain cards + highlights Swiper) -->
     <section id="about" class="about section about-section" data-aos="fade-up">
@@ -1638,6 +1851,51 @@
         pagination: { el: '.about-highlights-pagination', clickable: true },
         loop: true
       });
+    })();
+  </script>
+
+  <!-- Hero typing effect -->
+  <script>
+    (function() {
+      var el = document.getElementById('hero-typing-text');
+      if (!el) return;
+
+      var words = [
+        'building ML pipelines',
+        'researching NLP systems',
+        'visualizing data stories',
+        'exploring LLM applications',
+        'making sense of messy data',
+        'designing for humans',
+        'thinking about AI ethics'
+      ];
+
+      var wi = 0;
+      var ci = 0;
+      var deleting = false;
+
+      function type() {
+        var word = words[wi];
+        if (!deleting) {
+          el.textContent = word.slice(0, ci + 1);
+          ci++;
+          if (ci === word.length) {
+            deleting = true;
+            setTimeout(type, 1600);
+            return;
+          }
+        } else {
+          el.textContent = word.slice(0, ci - 1);
+          ci--;
+          if (ci === 0) {
+            deleting = false;
+            wi = (wi + 1) % words.length;
+          }
+        }
+        setTimeout(type, deleting ? 60 : 110);
+      }
+
+      setTimeout(type, 800);
     })();
   </script>
 
