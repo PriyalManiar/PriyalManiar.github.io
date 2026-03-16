@@ -2411,12 +2411,16 @@ section .container {
 }
 
 @media (max-width: 991px) {
-  .project-flip-card,
-  .project-flip-inner,
-  .project-flip-front,
-  .project-flip-back {
-    height: 400px;
+  /* On tablets/phones, let project cards in Projects section grow with content
+     so description and buttons are never clipped. */
+  #portfolio .project-flip-card,
+  #portfolio .project-flip-inner,
+  #portfolio .project-flip-front,
+  #portfolio .project-flip-back {
+    height: auto;
+    min-height: 0;
   }
+
   #extracurriculars .project-flip-card,
   #extracurriculars .project-flip-inner,
   #extracurriculars .project-flip-front,

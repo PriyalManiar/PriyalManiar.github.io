@@ -466,17 +466,21 @@
       transform: translateY(3px);
     }
     @media (max-width: 992px) {
+      /* On tablets/phones, stack hero text above photo */
       body.index-page #hero .hero-inner {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         min-height: auto;
       }
+      body.index-page #hero .hero-text-col {
+        order: 1;
+        padding: 40px 24px;
+      }
       body.index-page #hero .hero-photo-col {
+        order: 2;
         padding: 40px 24px;
         border-right: none;
         border-bottom: 1px solid var(--mist, #d0eaea);
-      }
-      body.index-page #hero .hero-text-col {
-        padding: 40px 24px;
       }
       body.index-page #hero .hero-name {
         font-size: 72px !important;
@@ -823,7 +827,7 @@
          </div>
          <div class="hero-grad-info">
            <strong>MS Information Sciences</strong>
-           University of Illinois<br>Urbana-Champaign
+           University of Illinois Urbana-Champaign
          </div>
        </div>
        <div class="hero-text-col">
