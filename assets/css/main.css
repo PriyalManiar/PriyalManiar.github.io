@@ -2093,7 +2093,7 @@ section .container {
 .project-flip-card {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: 590px !important;
   perspective: 1000px;
   -webkit-perspective: 1000px;
   transform-style: preserve-3d;
@@ -2103,7 +2103,7 @@ section .container {
 .project-flip-inner {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: 590px !important;
   transition: transform 0.6s ease;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
@@ -2119,7 +2119,7 @@ section .container {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 420px;
+  height: 590px !important;
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
@@ -2147,19 +2147,19 @@ section .container {
   overflow-y: auto;
 }
 
+
 /* Fixed-height image wrapper so image never covers buttons */
 .project-card-image-wrap {
   flex-shrink: 0;
   width: 100%;
-  height: 180px;
+  height: 210px;
   overflow: hidden;
   background: #f0f0f0;
 }
 
 .project-card-image-wrap img {
   width: 100%;
-  height: 100% !important;
-  max-height: 100% !important;
+  height: 100%;
   object-fit: cover;
   display: block;
   pointer-events: none;
@@ -2211,7 +2211,17 @@ section .container {
 }
 #portfolio .project-flip-front .project-card-subtitle {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure project buttons stay anchored at the bottom of the card body in Projects */
+#portfolio .project-flip-front .project-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+#portfolio .project-flip-front .project-card-buttons {
+  margin-top: auto;
 }
 
 /* Org/group name: card-level (h4 style) */
@@ -2291,6 +2301,13 @@ section .container {
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   line-height: 1.3;
+}
+
+/* Smaller tags specifically in the Projects section cards */
+#portfolio .project-tag {
+  font-size: 13px !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
 }
 
 .project-card-buttons {
@@ -2411,14 +2428,14 @@ section .container {
 }
 
 @media (max-width: 991px) {
-  /* On tablets/phones, let project cards in Projects section grow with content
-     so description and buttons are never clipped. */
+  /* On tablets/phones, keep Projects cards at the same fixed height
+     so layout matches desktop and buttons remain visible. */
   #portfolio .project-flip-card,
   #portfolio .project-flip-inner,
   #portfolio .project-flip-front,
   #portfolio .project-flip-back {
-    height: auto;
-    min-height: 0;
+    height: 590px !important;
+    min-height: 590px !important;
   }
 
   #extracurriculars .project-flip-card,
