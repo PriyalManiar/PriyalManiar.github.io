@@ -3252,3 +3252,194 @@ img, .card-img-top { max-width: 100%; height: auto !important; }
   .footer .container { text-align: center; }
   .footer .credits { font-size: 13px; }
 }
+
+/* ========================================= */
+/* PROJECT CARD RESIZING & SPACING TWEAKS    */
+/* ========================================= */
+
+/* 1. Reduce the overall height of the desktop cards */
+.project-flip-card,
+.project-flip-inner,
+.project-flip-front,
+.project-flip-back {
+  height: 480px !important; 
+}
+
+/* 2. Reduce the image height slightly */
+.project-card-image-wrap {
+  height: 180px !important; 
+}
+
+/* 3. Subtitle spacing */
+#portfolio .project-flip-front .project-card-subtitle {
+  margin-bottom: 2px !important; 
+}
+
+/* 4. OVERRIDE THE INVISIBLE SPRING: Bring tags up to the subtitle */
+.project-card-tags {
+  margin-top: 8px !important; /* Replaces 'auto' to kill the spring effect */
+  margin-bottom: 12px !important; /* Space between tags and buttons */
+}
+
+/* 5. Keep ONLY the buttons anchored to the bottom */
+#portfolio .project-flip-front .project-card-buttons {
+  margin-top: auto !important; 
+}
+
+/* 6. Ensure the mobile view also respects the new smaller height */
+@media (max-width: 991px) {
+  #portfolio .project-flip-card,
+  #portfolio .project-flip-inner,
+  #portfolio .project-flip-front,
+  #portfolio .project-flip-back {
+    height: 480px !important;
+    min-height: 480px !important;
+  }
+}
+
+/* ========================================= */
+/* FLIP CARD BACK - SCROLLBAR & FIT FIX      */
+/* ========================================= */
+
+/* 1. Force hide the vertical scrollbar */
+.project-flip-back {
+  overflow-y: hidden !important;
+}
+
+/* 2. Slightly tighten the text so it fits perfectly in the shorter card */
+.project-flip-back .project-description {
+  font-size: 15px !important;  /* Was 16px */
+  line-height: 1.6 !important; /* Was 1.9 (this was taking up a lot of vertical space) */
+}
+
+/* 3. Reduce the top margin of the bullet list slightly */
+.project-flip-back .project-description ul {
+  margin-top: 0.25rem !important; /* Was 0.5rem */
+}
+
+/* ========================================= */
+/* FLIP CARD BACK - TEAL TAG                 */
+/* ========================================= */
+
+.project-back-tag {
+  position: absolute;
+  top: 1.35rem;     /* Visually aligns with the center of the back arrow */
+  right: 1.25rem;   /* Anchors to the right edge */
+  background-color: #e8f6f6; /* Matching your theme's teal */
+  color: #3a7878;   /* White text for contrast */
+  padding: 4px 12px;
+  border-radius: 4px;
+  
+  /* Matching the back card text font */
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; 
+  font-weight: 400; 
+  letter-spacing: 0.3px;
+  z-index: 2;
+}
+
+/* ========================================= */
+/* EXTRACURRICULARS - RESTORE SCROLLBAR      */
+/* ========================================= */
+
+#extracurriculars .project-flip-back {
+  overflow-y: auto !important;
+}
+
+/* CSS for the updated diagonal prize ribbon */
+.project-prize-ribbon {
+    position: absolute;
+    top: 15px;       /* Shifted down slightly to accommodate the wider angle */
+    left: -50px;     /* Pulled further left so the longer banner centers properly */
+    width: 172px;    /* Increased length of the banner */
+    padding: 10px;
+    background-color: #46c832; 
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Slight increase for a more premium look */
+    font-size: 12px;
+    transform: rotate(-45deg); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10; 
+    pointer-events: none; 
+}
+
+/* ========================================= */
+/* NAV SCROLL OFFSET FIX FOR ABOUT SECTION   */
+/* ========================================= */
+
+#about.about-section.section {
+  scroll-margin-top: 100px !important; /* Bumper for desktop navbar */
+}
+
+@media (max-width: 1199px) {
+  #about.about-section.section {
+    scroll-margin-top: 72px !important; /* Slightly smaller bumper for mobile navbar */
+  }
+}
+
+/* ========================================= */
+/* REDUCE GAP BETWEEN HERO AND ABOUT         */
+/* ========================================= */
+
+/* 1. Reduce the bottom padding of the Home (Hero) section */
+body.index-page #hero.hero {
+  padding-bottom: 20px !important; /* Originally around 80px */
+}
+
+/* 2. Reduce the top padding of the About section */
+#about .about-section-inner {
+  padding-top: 30px !important; /* Originally 80px */
+}
+
+/* Increase the expansion limit for long text */
+#experience .experience-card.expanded .experience-card-description {
+  max-height: 1200px !important; /* Raised from 480px */
+}
+
+/* ========================================= */
+/* REDUCE GAP BETWEEN NAVBAR AND HERO TEXT   */
+/* ========================================= */
+
+@media (min-width: 992px) {
+  body.index-page #hero.hero {
+    padding-top: 50px !important; /* Overrides the default 80px padding */
+  }
+  
+  body.index-page #hero .hero-inner {
+    /* Shrinks the container slightly so the vertical center is higher up */
+    min-height: 80vh !important; 
+  }
+}
+
+/* ========================================= */
+/* EXPERIENCE CARDS - RESTORE BULLET POINTS  */
+/* ========================================= */
+
+/* 1. Bring back the standard disc bullets and add an indent */
+#experience .experience-card-description-inner .experience-desc-list {
+  list-style-type: disc !important;
+  padding-left: 24px !important; 
+}
+
+/* 2. Reset the list item padding so text aligns correctly */
+#experience .experience-card-description-inner .experience-desc-list li {
+  padding-left: 4px !important;
+  margin-bottom: 8px !important; /* Gives breathing room between bullet points */
+}
+
+/* 3. Hide the broken custom blue dots from the original template */
+#experience .experience-card-description-inner .experience-desc-list li::before {
+  display: none !important;
+}
+
+/* ========================================= */
+/* EXPERIENCE CARDS - TEAL BOLD HIGHLIGHTS   */
+/* ========================================= */
+
+#experience .experience-desc-list li strong {
+  color: #3a7878 !important; /* Deep teal matching your domain cards */
+  font-weight: 600 !important;
+}
