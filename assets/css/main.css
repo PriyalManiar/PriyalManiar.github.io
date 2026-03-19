@@ -3443,3 +3443,18 @@ body.index-page #hero.hero {
   color: #3a7878 !important; /* Deep teal matching your domain cards */
   font-weight: 600 !important;
 }
+
+/* The container holding the tags */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Adjust this to match your current spacing */
+}
+
+/* The individual tags */
+.skill-tag {
+  flex-grow: 1; /* This is the magic line that makes them fill the space */
+  text-align: center; /* Keeps the text centered as the box stretches */
+  
+  /* Keep your existing padding, background, and border-radius here! */
+}
